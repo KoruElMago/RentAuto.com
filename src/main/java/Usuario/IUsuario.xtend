@@ -1,5 +1,6 @@
-package ar.edu.unq.epers.model
+package Usuario
 
+import Reserva.Reserva
 import java.util.List
 
 interface IUsuario {

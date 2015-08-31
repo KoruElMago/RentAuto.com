@@ -1,9 +1,11 @@
 package ar.edu.unq.epers.model
 
+import Reserva.Reserva
+import Reserva.ReservaException
 import org.junit.Test
 
-import static org.junit.Assert.*
 import static ar.edu.unq.epers.extensions.DateExtensions.*
+import static org.junit.Assert.*
 
 class ValidarReservasTest extends AbstractTest {
 	@Test

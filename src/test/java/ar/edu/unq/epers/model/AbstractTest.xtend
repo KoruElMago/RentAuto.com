@@ -1,6 +1,13 @@
 package ar.edu.unq.epers.model
 
+import Auto.Auto
+import Categoria.Categoria
+import Categoria.Familiar
+import Empresa.Empresa
+import Ubicacion.Ubicacion
+import Usuario.IUsuario
 import org.junit.Before
+
 import static org.mockito.Mockito.*
 
 class AbstractTest {

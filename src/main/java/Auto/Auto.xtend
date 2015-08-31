@@ -1,5 +1,8 @@
-package ar.edu.unq.epers.model
+package Auto
 
+import Categoria.Categoria
+import Reserva.Reserva
+import Ubicacion.Ubicacion
 import java.util.Date
 import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
@@ -11,7 +14,7 @@ class Auto {
 	Integer año
 	String patente
 	Double costoBase
-	Categoria categoria
+		Categoria categoria
 	
 	//Debe estar ordenado
 	List<Reserva> reservas = newArrayList()

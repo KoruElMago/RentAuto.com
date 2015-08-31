@@ -1,4 +1,4 @@
-package ar.edu.unq.epers.model
+package Ubicacion
 
 import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors

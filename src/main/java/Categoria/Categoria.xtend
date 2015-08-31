@@ -1,5 +1,6 @@
-package ar.edu.unq.epers.model
+package Categoria
 
+import Auto.Auto
 import org.eclipse.xtend.lib.annotations.Accessors
 
 @Accessors 
