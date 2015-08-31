@@ -29,6 +29,5 @@ import org.eclipse.xtend.lib.annotations.Accessors;
 			this.fechaNacimiento = fechaNacimiento
 
 		}
-
 	
 	}
