@@ -39,6 +39,18 @@ class Home {
 		return DriverManager.getConnection("jdbc:mysql://localhost/TP-01?user=root&password=root")
 	}
 	
-
+	def cambiarContraseña(String password, String nombreUsuario){
+		try{
+			conn = this.getConnection();
+			ps = conn.prepareStatement
+			("UPDATE usuario SET (password = ?) where (nombre_usuario = ?)")
+		
+		ps.setString (1, password)
+		ps.setString (2, nombreUsuario)
+						
+		}
+		
+		
+	}
 	
 	}
