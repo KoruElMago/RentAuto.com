@@ -15,7 +15,7 @@ class ServiciosExpuestos {
 		
 	}
 
-	def void ValidarCuenta (int codigoValidacion) throws ValidaciónException{
+	def void ValidarCuenta (String codigoValidacion) throws ValidaciónException{
 		repositorio.validarCuenta(codigoValidacion)
 	}
 	
