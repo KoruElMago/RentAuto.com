@@ -23,6 +23,15 @@ class Home {
 	}
 	
 	def validarCuenta (String codigoValidación){
+		try{
+			conn = this.getConnection();
+			ps = conn.prepareStatement
+			("UPDATE  usuario  
+			  SET(esta_validada = True) 
+			  WHERE (codigo_validacion = ?)");
+			ps.setString(1, codigoValidación)
+			this.closeConection;
+			}	
 		
 	}
 	
@@ -36,7 +45,7 @@ class Home {
 	
 	def getConnection() {
 		Class.forName("com.mysql.jdbc.Driver");
-		return DriverManager.getConnection("jdbc:mysql://localhost/TP-01?user=root&password=root")
+		return DriverManager.getConnection("jdbc:mysql://localhost/rentauto?user=root&password=root")
 	}
 	
 	def cambiarContraseña(String password, String nombreUsuario){
