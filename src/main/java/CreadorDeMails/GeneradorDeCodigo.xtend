@@ -1,8 +1,10 @@
 package CreadorDeMails
 
+import Usuario.Usuario
+
 class GeneradorDeCodigo {
 	
-	def generarCodigo(Usuario user){
+	def final generarCodigo(Usuario user){
 		user.nombreUsuario.hashCode
 	}
 	
