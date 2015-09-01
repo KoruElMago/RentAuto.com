@@ -15,12 +15,12 @@ class ServiciosExpuestos {
 		
 	}
 
-	def void ValidarCuenta (String codigoValidacion) throws ValidaciónException{
+	def void ValidarCuenta (String codigoValidacion) throws ValidacionException{
 		repositorio.validarCuenta(codigoValidacion)
 	}
 	
 	def Usuario IngresarUsuario ( String userName, String password) throws UsuarioNoExiste{
-		
+		repositorio.ingresarUsuario(userName,password)
 	}
 	
 	def void CambiarPassword ( String userName, String password, String nuevaPassword) throws NuevaPasswordInválida{
