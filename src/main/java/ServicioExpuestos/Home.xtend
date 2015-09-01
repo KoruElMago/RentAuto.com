@@ -24,11 +24,12 @@ class Home {
 	}
 
 
-	def buscarUsuario(String nombreUsuario, String password){
+	def buscarUsuario(String nombreUsuario){
 		try{
 			conn = this.getConnection();
 			ps = conn.prepareStatement
-			("SELECT nombre_usuario, password ");
+			("SELECT * from usuario where nombre_usuario = ?");
+			ps.setString(1, nombreUsuario)
 		}
 		
 	}
