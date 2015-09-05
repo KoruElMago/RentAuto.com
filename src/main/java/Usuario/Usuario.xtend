@@ -14,7 +14,8 @@ import org.eclipse.xtend.lib.annotations.Accessors;
 		String apellido
 		String email
 		String fechaNacimiento
-		
+		boolean estaValidada
+		String codigoValidacion
 
 	//Estructura
 	
