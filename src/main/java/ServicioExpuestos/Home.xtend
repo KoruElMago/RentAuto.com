@@ -90,7 +90,7 @@ class Home {
 			}finally{
 				 this.closeConection();
 			}
-		var us = new Usuario(rsNombreUsuario,rsNombre,rsApellido,rsEmail,rsFechaNacimiento);
+		var us = new Usuario(rsNombreUsuario,rsNombre,rsApellido,rsEmail,rsFechaNacimiento,rsPassword);
 			us.codigoValidacion = rsCodigo;
 			us.estaValidada = rsEstaValidada;
 		return us;
@@ -106,7 +106,8 @@ class Home {
 		var  rsFechaNacimiento = ""
 		var  rsEmail           = ""
 		var  rsNombreUsuario   = ""
-		var  rsEstaValidada   = false
+		var  rsEstaValidada    = false
+		var  rsPassword        = ""
 		
 		
 		
@@ -124,7 +125,8 @@ class Home {
 			  rsFechaNacimiento = rs.getString("fecha_nacimiento");
 			  rsEmail           = rs.getString("email");
 			  rsNombreUsuario   = rs.getString("nombre_usuario");
-			  rsEstaValidada   = rs.getBoolean("esta_validada");
+			  rsEstaValidada    = rs.getBoolean("esta_validada");
+			  rsPassword        = rs.getString("password");
 			
 			
 			}
@@ -132,7 +134,7 @@ class Home {
 				 this.closeConection();
 			}
 			
-			var us = new Usuario(rsNombreUsuario,rsNombre,rsApellido,rsEmail,rsFechaNacimiento);
+			var us = new Usuario(rsNombreUsuario,rsNombre,rsApellido,rsEmail,rsFechaNacimiento,rsPassword);
 			us.codigoValidacion = rsCodigo;
 			us.estaValidada = rsEstaValidada;
 			return us;
