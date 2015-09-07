@@ -12,10 +12,10 @@ class Home {
 	Connection conn = null;
 	PreparedStatement ps = null;
 	
-	def	guardarUsuario (Usuario usuario) {
+	def void guardarUsuario (Usuario usuario) {
 		
 		try{
-			conn = this.getConnection();
+			conn = this.getConnection()
 			ps = conn.prepareStatement
 			("INSERT INTO Usuario (nombre_usuario, nombre, apellido, 
 			                       email, fecha_nacimiento, esta_validada,
@@ -28,9 +28,9 @@ class Home {
                         ps.setString(3, usuario.apellido)
                         ps.setString(4, usuario.email)
                         ps.setString(5, usuario.fechaNacimiento)
-                        ps.setString(6, usuario.estaValidada)
+                        ps.setBoolean(6, usuario.estaValidada)
                         ps.setString(7, usuario.codigoValidacion)
-			this.closeConection;
+			this.closeConection
 			}		
 	}
 
@@ -44,6 +44,31 @@ class Home {
 		}
 		
 	}
+	
+	def existeUsuario(String nombreUsuario){
+		
+		try{
+			conn = this.getConnection();
+			ps = conn.prepareStatement
+			("SELECT * from usuario where nombre_usuario = ?");
+			ps.setString(1, nombreUsuario)
+			ps.fetchSize > 0;
+		}
+		
+	}
+	
+	def existeUsuarioConCodigo(String codigoValidacion){
+		
+		try{
+			conn = this.getConnection();
+			ps = conn.prepareStatement
+			("SELECT * from usuario where codigoValidacion = ?");
+			ps.setString(1, codigoValidacion)
+			ps.fetchSize > 0;
+		}
+		
+	}	
+	
 	def buscarUsuarioPorCodigo(String codigo){
 		try{
 			conn = this.getConnection();
@@ -53,6 +78,27 @@ class Home {
 		}
 		
 	}
+	
+	def cambiarPassword (String userName, String password, String nuevaPassword){
+		try{
+			conn = this.getConnection
+			ps = conn.prepareStatement("Update Usuarios set password =?
+                                        where nombre_usuario = ?")
+            ps.setString(1,nuevaPassword)
+            ps.setString(2,userName)
+		}
+	}
+	
+	def validarCuenta(String codigoValidacion){
+		try{
+			conn = this.getConnection
+			ps = conn.prepareStatement("Update Usuarios set esta_validada =?
+                                        where codigo_validacion = ?")
+            ps.setBoolean(1,true)
+            ps.setString(2,codigoValidacion)
+		}
+	}
+	
 	def closeConection(){
 		
 			if(ps != null)
@@ -65,9 +111,5 @@ class Home {
 		Class.forName("com.mysql.jdbc.Driver");
 		return DriverManager.getConnection("jdbc:mysql://localhost/rentauto?user=root&password=root")
 	}
-	
-	
-		
-	
 	
 	}
