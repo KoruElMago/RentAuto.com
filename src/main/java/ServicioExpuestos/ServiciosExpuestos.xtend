@@ -16,21 +16,21 @@ class ServiciosExpuestos {
 	
 	def void RegistrarUsuario (Usuario usuarioNuevo) {
 		//busco si el usuario ya existe, y sino lo guardo como usuario nuevo
-		if (repositorio.existeUsuario(usuarioNuevo.nombreUsuario)) {
+		if (repositorio.buscarUsuario(usuarioNuevo.nombreUsuario) != Null) {
 			throw new UsuarioYaExisteException
 		}
 		repositorio.guardarUsuario(usuarioNuevo)
 	}
 
 	def void ValidarCuenta (String codigoValidacion) throws ValidacionException{
-		if (!repositorio.existeUsuarioConCodigo(codigoValidacion)){
+		if (repositorio.buscarUsuarioPorCodigo(codigoValidacion) == Null){
 			throw new ValidacionException
 		}
 		repositorio.validarCuenta(codigoValidacion)
 	}
 	
 	def Usuario IngresarUsuario ( String userName, String password) throws UsuarioNoExiste{
-		if (!repositorio.existeUsuario(userName)) {
+		if (repositorio.buscarUsuario(userName) == Null) {
 			throw new UsuarioNoExiste
 		}
 		//repositorio.ingresarUsuario(userName,password)
@@ -43,7 +43,9 @@ class ServiciosExpuestos {
 		if (nuevaPassword.length < 4) {
 			throw new NuevaPasswordInvalida
 		}
-		repositorio.cambiarPassword(userName,password,nuevaPassword)
+		var user = repositorio.buscarUsuario(userName)
+		user.setPassword(nuevaPassword)
+		repositorio.guardarUsuario(user)
 	}
 	
 	}
