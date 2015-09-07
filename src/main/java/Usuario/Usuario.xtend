@@ -16,6 +16,7 @@ import org.eclipse.xtend.lib.annotations.Accessors;
 		String fechaNacimiento
 		boolean estaValidada
 		String codigoValidacion
+		String password
 
 	//Estructura
 	
@@ -29,6 +30,10 @@ import org.eclipse.xtend.lib.annotations.Accessors;
 			this.email = email
 			this.fechaNacimiento = fechaNacimiento
 
+		}
+		
+		def void validar(){
+			this.estaValidada = true
 		}
 	
 	}
