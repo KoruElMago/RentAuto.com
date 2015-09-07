@@ -20,7 +20,7 @@ import org.eclipse.xtend.lib.annotations.Accessors;
 	//Estructura
 	
 		new(String nombreUsuario, String nombre, 
-				String apellido, String email, String fechaNacimiento){
+				String apellido, String email, String fechaNacimiento) {
 		
 			
 			this.nombreUsuario = nombreUsuario
