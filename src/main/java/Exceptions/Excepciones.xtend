@@ -31,3 +31,12 @@ class NuevaPasswordInvalida extends Exception{
 	}
 		
 }
+	
+class NoPuedeEnviarMail extends Exception{
+	
+	new(){
+		super("Mail no se pudo enviar. Por favor complete los espacios vacios")
+	}	
+	
+		
+}
