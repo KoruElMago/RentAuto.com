@@ -36,10 +36,10 @@ class Home {
 			ps2 = conn.prepareStatement
 			("INSERT INTO Usuario (nombre_usuario, nombre, apellido, 
 			                       email, fecha_nacimiento, esta_validada,
-			                       codigo_validacion) 
+			                       codigo_validacion,password) 
                           VALUES              (?, ?, ?
                           		       ?, ?, ?
-                          		       ?)");
+                          		       ?,?)");
             ps.setString(1, usuario.nombreUsuario)
             ps2.setString(1, usuario.nombreUsuario)
             ps2.setString(2, usuario.nombre)
@@ -48,7 +48,7 @@ class Home {
             ps2.setString(5, usuario.fechaNacimiento)
             ps2.setBoolean(6, usuario.estaValidada)
             ps2.setString(7, usuario.codigoValidacion)
-			
+			ps2.setString(8, usuario.password);
 			ps.execute();
 			
 			}finally{
@@ -64,7 +64,8 @@ class Home {
 		var  rsFechaNacimiento = ""
 		var  rsEmail           = ""
 		var  rsNombreUsuario   = ""
-		var  rsEstaValidada   = false
+		var  rsEstaValidada    = false
+		var  rsPassword        = ""
 		
 		try{
 			conn = this.getConnection();
@@ -81,7 +82,8 @@ class Home {
 			  rsFechaNacimiento = rs.getString("fecha_nacimiento");
 			  rsEmail           = rs.getString("email");
 			  rsNombreUsuario   = rs.getString("nombre_usuario");
-			  rsEstaValidada   = rs.getBoolean("esta_validada");
+			  rsEstaValidada    = rs.getBoolean("esta_validada");
+			  rsPassword        = rs.getString("password");
 			
 			
 			}
