@@ -9,6 +9,9 @@ import Usuario.IUsuario
 import org.junit.Before
 
 import static org.mockito.Mockito.*
+import ServicioExpuestos.Home
+import Usuario.Usuario
+import ServicioExpuestos.ServiciosExpuestos
 
 class AbstractTest {
 	protected Auto auto
@@ -18,6 +21,9 @@ class AbstractTest {
 	protected IUsuario usuarioPrueba
 	protected IUsuario usuarioEmpresa
 	protected Empresa empresa
+	protected Home homePrueba
+	protected Usuario usuarioRegistro
+	protected ServiciosExpuestos servicioExpuesto
 
 	@Before
 	def void setUp() {
@@ -37,5 +43,10 @@ class AbstractTest {
 		]
 		
 		empresa.usuarios.add(usuarioEmpresa)
+		
+		homePrueba = mock(Home)
+		usuarioRegistro = mock(Usuario)
+		servicioExpuesto = new ServiciosExpuestos(homePrueba)
+		doReturn(usuarioRegistro).when(homePrueba).buscarUsuario(anyString())
 	}
 }

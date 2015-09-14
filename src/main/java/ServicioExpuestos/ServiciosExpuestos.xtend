@@ -14,7 +14,7 @@ class ServiciosExpuestos {
 		repositorio = newHome
 	}
 	
-	def void RegistrarUsuario (Usuario usuarioNuevo) {
+	def void registrarUsuario (Usuario usuarioNuevo) {
 		
 		var user = repositorio.buscarUsuario(usuarioNuevo.nombreUsuario)
 		if (user.nombreUsuario != null) {
@@ -24,7 +24,7 @@ class ServiciosExpuestos {
 		
 	}
 
-	def void ValidarCuenta (String codigoValidacion) throws ValidacionException{
+	def void validarCuenta (String codigoValidacion) throws ValidacionException{
 		
 		var user = repositorio.buscarUsuarioPorCodigo(codigoValidacion)
 		if (user.nombreUsuario == null){
@@ -35,7 +35,7 @@ class ServiciosExpuestos {
 		
 	}
 	
-	def Usuario IngresarUsuario ( String userName, String password) throws UsuarioNoExiste{
+	def Usuario ingresarUsuario ( String userName, String password) throws UsuarioNoExiste{
 		
 		var user = repositorio.buscarUsuario(userName)
 		if (user.nombreUsuario == null) {
@@ -45,7 +45,7 @@ class ServiciosExpuestos {
 		
 	}
 	
-	def void CambiarPassword ( String userName, String password, String nuevaPassword) throws NuevaPasswordInvalida{
+	def void cambiarPassword ( String userName, String password, String nuevaPassword) throws NuevaPasswordInvalida{
 		
 		if (password == nuevaPassword) {
 			throw new NuevaPasswordInvalida
