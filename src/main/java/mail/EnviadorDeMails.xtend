@@ -1,6 +1,6 @@
-package CreadorDeMails
+package mail
 
-import Exceptions.NoPuedeEnviarMail
+import exceptions.NoPuedeEnviarMail
 
 class EnviadorDeMails {
 	

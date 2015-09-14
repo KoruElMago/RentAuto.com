@@ -1,4 +1,4 @@
-package Ubicacion
+package model
 
 import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors

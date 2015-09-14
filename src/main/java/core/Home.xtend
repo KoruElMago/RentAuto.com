@@ -1,6 +1,5 @@
-package ServicioExpuestos
+package core
 
-import Usuario.Usuario
 import java.sql.Connection
 import java.sql.DriverManager
 import java.sql.PreparedStatement
@@ -56,60 +55,43 @@ class Home {
 			}
 	}
 
-
-	def buscarUsuario(String nombreUsuario){
-		var  rsNombre          = ""
-		var  rsCodigo          = ""
-		var  rsApellido        = ""
-		var  rsFechaNacimiento = ""
-		var  rsEmail           = ""
-		var  rsNombreUsuario   = ""
-		var  rsEstaValidada    = false
-		var  rsPassword        = ""
+	def buscarUsuario(String codigo){
+		
+		var Usuario user = null
 		
 		try{
 			conn = this.getConnection();
 			ps = conn.prepareStatement
 			("SELECT * from usuario where nombre_usuario = ?");
-			ps.setString(1, nombreUsuario)
+			ps.setString(1, codigo)
 			
 			var rs = ps.executeQuery();
 			
 			if(rs.next){
-			  rsNombre          = rs.getString("nombre");
-			  rsCodigo          = rs.getString("codigo_validacion");
-			  rsApellido        = rs.getString("apellido");
-			  rsFechaNacimiento = rs.getString("fecha_nacimiento");
-			  rsEmail           = rs.getString("email");
-			  rsNombreUsuario   = rs.getString("nombre_usuario");
-			  rsEstaValidada    = rs.getBoolean("esta_validada");
-			  rsPassword        = rs.getString("password");
-			
+				
+				user = new Usuario(
+					rs.getString("nombre_usuario"),
+					rs.getString("nombre"),
+					rs.getString("apellido"),
+					rs.getString("email"),
+					rs.getString("fecha_nacimiento"),
+					rs.getString("password")
+				)
+				user.codigoValidacion = rs.getString("codigo_validacion")
+				user.estaValidada = rs.getBoolean("esta_validada")
 			
 			}
 			}finally{
 				 this.closeConection();
 			}
-		var us = new Usuario(rsNombreUsuario,rsNombre,rsApellido,rsEmail,rsFechaNacimiento,rsPassword);
-			us.codigoValidacion = rsCodigo;
-			us.estaValidada = rsEstaValidada;
-		return us;
-		}
+			
+		return user;
 		
-	 
-
+	}
 	
 	def buscarUsuarioPorCodigo(String codigo){
-		var  rsNombre          = ""
-		var  rsCodigo          = ""
-		var  rsApellido        = ""
-		var  rsFechaNacimiento = ""
-		var  rsEmail           = ""
-		var  rsNombreUsuario   = ""
-		var  rsEstaValidada    = false
-		var  rsPassword        = ""
 		
-		
+		var Usuario user = null
 		
 		try{
 			conn = this.getConnection();
@@ -118,31 +100,27 @@ class Home {
 			ps.setString(1, codigo)
 			
 			var rs = ps.executeQuery();
-			if(rs.next){
-			  rsNombre          = rs.getString("nombre");
-			  rsCodigo          = rs.getString("codigo_validacion");
-			  rsApellido        = rs.getString("apellido");
-			  rsFechaNacimiento = rs.getString("fecha_nacimiento");
-			  rsEmail           = rs.getString("email");
-			  rsNombreUsuario   = rs.getString("nombre_usuario");
-			  rsEstaValidada    = rs.getBoolean("esta_validada");
-			  rsPassword        = rs.getString("password");
 			
+			if(rs.next){
+				
+				user = new Usuario(
+					rs.getString("nombre_usuario"),
+					rs.getString("nombre"),
+					rs.getString("apellido"),
+					rs.getString("email"),
+					rs.getString("fecha_nacimiento"),
+					rs.getString("password")
+				)
+				user.codigoValidacion = rs.getString("codigo_validacion")
+				user.estaValidada = rs.getBoolean("esta_validada")
 			
 			}
 			}finally{
 				 this.closeConection();
 			}
 			
-			var us = new Usuario(rsNombreUsuario,rsNombre,rsApellido,rsEmail,rsFechaNacimiento,rsPassword);
-			us.codigoValidacion = rsCodigo;
-			us.estaValidada = rsEstaValidada;
-			return us;
+		return user;
 		
 	}
-	
-	
-	
-
 	
 	}

@@ -1,4 +1,4 @@
-package CreadorDeMails
+package mail
 
 import org.eclipse.xtend.lib.annotations.Accessors
 

@@ -1,6 +1,6 @@
-package CreadorDeMails
+package mail
 
-import Usuario.Usuario
+import core.Usuario
 
 class GeneradorDeCodigo {
 	

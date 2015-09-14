@@ -1,6 +1,5 @@
-package Categoria
+package model
 
-import Auto.Auto
 import org.eclipse.xtend.lib.annotations.Accessors
 
 @Accessors 

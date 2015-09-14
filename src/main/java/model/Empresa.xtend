@@ -1,9 +1,5 @@
-package Empresa
+package model
 
-import Categoria.Categoria
-import Reserva.Reserva
-import Reserva.ReservaException
-import Usuario.IUsuario
 import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
 

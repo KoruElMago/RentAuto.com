@@ -1,4 +1,4 @@
-package Usuario;
+package core;
 
 import org.eclipse.xtend.lib.annotations.Accessors;
 
@@ -16,6 +16,10 @@ class Usuario {
 	String password
 
 	//Estructura
+	
+	new() {
+		
+	}
 	
 	new(String nombreUsuario, 
 		String nombre, 

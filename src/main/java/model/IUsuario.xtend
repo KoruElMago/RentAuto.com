@@ -1,6 +1,5 @@
-package Usuario
+package model
 
-import Reserva.Reserva
 import java.util.List
 
 interface IUsuario {

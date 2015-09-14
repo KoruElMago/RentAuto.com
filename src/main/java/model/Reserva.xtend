@@ -1,9 +1,5 @@
-package Reserva
+package model
 
-import Auto.Auto
-import Empresa.Empresa
-import Ubicacion.Ubicacion
-import Usuario.IUsuario
 import java.util.Date
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.joda.time.DateTime

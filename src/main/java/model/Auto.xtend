@@ -1,8 +1,5 @@
-package Auto
+package model
 
-import Categoria.Categoria
-import Reserva.Reserva
-import Ubicacion.Ubicacion
 import java.util.Date
 import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors

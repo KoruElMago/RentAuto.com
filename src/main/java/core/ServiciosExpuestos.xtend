@@ -1,10 +1,9 @@
-package ServicioExpuestos
+package core
 
-import Exceptions.NuevaPasswordInvalida
-import Exceptions.UsuarioNoExiste
-import Exceptions.UsuarioYaExisteException
-import Exceptions.ValidacionException
-import Usuario.Usuario
+import exceptions.NuevaPasswordInvalida
+import exceptions.UsuarioNoExiste
+import exceptions.UsuarioYaExisteException
+import exceptions.ValidacionException
 
 class ServiciosExpuestos {
 	
@@ -17,7 +16,7 @@ class ServiciosExpuestos {
 	def void registrarUsuario (Usuario usuarioNuevo) {
 		
 		var user = repositorio.buscarUsuario(usuarioNuevo.nombreUsuario)
-		if (user.nombreUsuario != null) {
+		if (user != null) {
 			throw new UsuarioYaExisteException
 		}
 		repositorio.guardarUsuario(usuarioNuevo)
@@ -27,7 +26,7 @@ class ServiciosExpuestos {
 	def void validarCuenta (String codigoValidacion) throws ValidacionException{
 		
 		var user = repositorio.buscarUsuarioPorCodigo(codigoValidacion)
-		if (user.nombreUsuario == null){
+		if (user == null){
 			throw new ValidacionException
 		}
 		user.validar
@@ -38,7 +37,7 @@ class ServiciosExpuestos {
 	def Usuario ingresarUsuario ( String userName, String password) throws UsuarioNoExiste{
 		
 		var user = repositorio.buscarUsuario(userName)
-		if (user.nombreUsuario == null) {
+		if (user == null) {
 			throw new UsuarioNoExiste
 		}
 		//repositorio.ingresarUsuario(userName,password)
