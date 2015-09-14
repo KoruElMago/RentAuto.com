@@ -4,9 +4,11 @@ import exceptions.NuevaPasswordInvalida
 import exceptions.UsuarioNoExiste
 import exceptions.UsuarioYaExisteException
 import exceptions.ValidacionException
+import org.eclipse.xtend.lib.annotations.Accessors
 
 class ServiciosExpuestos {
 	
+	@Accessors
 	var Home repositorio
 	
 	new(Home newHome) {

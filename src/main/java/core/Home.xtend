@@ -30,15 +30,13 @@ class Home {
 		
 		try{
 			conn = this.getConnection()
-			ps = conn.prepareStatement("DELETE FROM Usuario WHERE nombre_usuario == ? ");
+			ps = conn.prepareStatement("DELETE FROM USUARIOS WHERE NOMBRE_USUARIO == ? ");
 			
 			ps2 = conn.prepareStatement
-			("INSERT INTO Usuario (nombre_usuario, nombre, apellido, 
-			                       email, fecha_nacimiento, esta_validada,
-			                       codigo_validacion,password) 
-                          VALUES              (?, ?, ?
-                          		       ?, ?, ?
-                          		       ?,?)");
+			("INSERT INTO USUARIOS (NOMBRE_USUARIO, NOMBRE, APELLIDO, 
+			                        EMAIL, FECHA_NACIMIENTO, ESTA_VALIDADA,
+			                        CODIGO_VALIDACION,PASSWORD) 
+                                    VALUES (?, ?, ?, ?, ?, ?,?,?)");
             ps.setString(1, usuario.nombreUsuario)
             ps2.setString(1, usuario.nombreUsuario)
             ps2.setString(2, usuario.nombre)
@@ -62,7 +60,7 @@ class Home {
 		try{
 			conn = this.getConnection();
 			ps = conn.prepareStatement
-			("SELECT * from usuario where nombre_usuario = ?");
+			("SELECT * FROM USUARIOS WHERE NOMBRE_USUARIO = ?");
 			ps.setString(1, codigo)
 			
 			var rs = ps.executeQuery();
@@ -70,15 +68,15 @@ class Home {
 			if(rs.next){
 				
 				user = new Usuario(
-					rs.getString("nombre_usuario"),
-					rs.getString("nombre"),
-					rs.getString("apellido"),
-					rs.getString("email"),
-					rs.getString("fecha_nacimiento"),
-					rs.getString("password")
+					rs.getString("NOMBRE_USUARIO"),
+					rs.getString("NOMBRE"),
+					rs.getString("APELLIDO"),
+					rs.getString("EMAIL"),
+					rs.getString("FECHA_NACIMIENTO"),
+					rs.getString("PASSWORD")
 				)
-				user.codigoValidacion = rs.getString("codigo_validacion")
-				user.estaValidada = rs.getBoolean("esta_validada")
+				user.codigoValidacion = rs.getString("CODIGO_VALIDACION")
+				user.estaValidada = rs.getBoolean("ESTA_VALIDADA")
 			
 			}
 			}finally{
@@ -96,7 +94,7 @@ class Home {
 		try{
 			conn = this.getConnection();
 			ps = conn.prepareStatement
-			("SELECT * from usuario where codigo_validacion = ?");
+			("SELECT * FROM USUARIOS WHERE CODIGO_VALIDACION = ?");
 			ps.setString(1, codigo)
 			
 			var rs = ps.executeQuery();
@@ -104,15 +102,15 @@ class Home {
 			if(rs.next){
 				
 				user = new Usuario(
-					rs.getString("nombre_usuario"),
-					rs.getString("nombre"),
-					rs.getString("apellido"),
-					rs.getString("email"),
-					rs.getString("fecha_nacimiento"),
-					rs.getString("password")
+					rs.getString("NOMBRE_USUARIO"),
+					rs.getString("NOMBRE"),
+					rs.getString("APELLIDO"),
+					rs.getString("EMAIL"),
+					rs.getString("FECHA_NACIMIENTO"),
+					rs.getString("PASSWORD")
 				)
-				user.codigoValidacion = rs.getString("codigo_validacion")
-				user.estaValidada = rs.getBoolean("esta_validada")
+				user.codigoValidacion = rs.getString("CODIGO_VALIDACION")
+				user.estaValidada = rs.getBoolean("ESTA_VALIDADA")
 			
 			}
 			}finally{

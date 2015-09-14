@@ -48,6 +48,7 @@ class AbstractTest {
 		homePrueba = mock(Home)
 		usuarioRegistro = mock(Usuario)
 		servicioExpuesto = new ServiciosExpuestos(homePrueba)
-		doReturn(usuarioRegistro).when(homePrueba).buscarUsuario(anyString())
+		
+		
 	}
 }
