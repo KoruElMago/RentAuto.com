@@ -1,7 +1,7 @@
 package ar.edu.unq.epers.model
 
-import Reserva.Reserva
-import Reserva.ReservaException
+import model.Reserva
+import model.ReservaException
 import org.junit.Test
 
 import static ar.edu.unq.epers.extensions.DateExtensions.*

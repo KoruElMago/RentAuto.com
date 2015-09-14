@@ -1,17 +1,18 @@
 package ar.edu.unq.epers.model
 
-import Auto.Auto
-import Categoria.Categoria
-import Categoria.Familiar
-import Empresa.Empresa
-import Ubicacion.Ubicacion
-import Usuario.IUsuario
+import core.Home
+import core.ServiciosExpuestos
+import core.Usuario
+import model.Auto
+import model.Categoria
+import model.Empresa
+import model.Familiar
+import model.IUsuario
+import model.Ubicacion
 import org.junit.Before
 
+import static org.mockito.Matchers.*
 import static org.mockito.Mockito.*
-import ServicioExpuestos.Home
-import Usuario.Usuario
-import ServicioExpuestos.ServiciosExpuestos
 
 class AbstractTest {
 	protected Auto auto

@@ -1,8 +1,8 @@
 package ar.edu.unq.epers.model
 
-import Categoria.Deportivo
-import Categoria.TodoTerreno
-import Categoria.Turismo
+import model.Deportivo
+import model.TodoTerreno
+import model.Turismo
 import org.junit.Test
 
 import static org.junit.Assert.*
