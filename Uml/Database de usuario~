@@ -1,7 +1,8 @@
-create table usuario (nombre_usuario varchar(15) primary key not,
-		nombre varchar(15) not null,
-		apellido varchar(15) not null,
-		email varchar(30) not null,
-		fecha_nacimiento varchar(15) not null,
-		esta_validada boolean not null)
+CREATE TABLE USUARIOS (NOMBRE_USUARIO VARCHAR(15) PRIMARY KEY NOT NULL,
+	   	       NOMBRE VARCHAR(15) NOT NULL,
+		       APELLIDO VARCHAR(15) NOT NULL,
+		       EMAIL VARCHAR(30) NOT NULL,
+		       FECHA_NACIMIENTO VARCHAR(10) NOT NULL,
+		       ESTA_VALIDADA BOOLEAN NOT NULL,
+		       CODIGO_VALIDACION INTEGER NOT NULL)
 		

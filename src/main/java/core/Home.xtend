@@ -53,7 +53,7 @@ class Home {
 			}
 	}
 
-	def buscarUsuario(String codigo){
+	def buscarUsuario(String nombreUsuario){
 		
 		var Usuario user = null
 		
@@ -61,7 +61,7 @@ class Home {
 			conn = this.getConnection();
 			ps = conn.prepareStatement
 			("SELECT * FROM USUARIOS WHERE NOMBRE_USUARIO = ?");
-			ps.setString(1, codigo)
+			ps.setString(1, nombreUsuario)
 			
 			var rs = ps.executeQuery();
 			

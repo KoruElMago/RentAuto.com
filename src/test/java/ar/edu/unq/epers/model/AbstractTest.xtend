@@ -25,6 +25,7 @@ class AbstractTest {
 	protected Home homePrueba
 	protected Usuario usuarioRegistro
 	protected ServiciosExpuestos servicioExpuesto
+	protected Usuario userNuevo
 
 	@Before
 	def void setUp() {
@@ -49,6 +50,11 @@ class AbstractTest {
 		usuarioRegistro = mock(Usuario)
 		servicioExpuesto = new ServiciosExpuestos(homePrueba)
 		
-		
+		userNuevo = new Usuario("alquimia",
+								"garrapiniada",
+								"artesanal",
+								"123@gmail.com",
+								"14/09/2000",
+								"1234")
 	}
 }

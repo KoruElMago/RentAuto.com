@@ -1,35 +1,31 @@
 package ar.edu.unq.epers.model
 
-import core.Usuario
 import org.junit.Test
-import org.junit.Assert
+
+import static org.mockito.Mockito.*
 
 class ServiciosExpuestosTest extends AbstractTest{
 	
 	@Test
 	def registroDeUsuario(){
-		var userNuevo = new Usuario("alquimia",
-									"garrapiniada",
-									"artesanal",
-									"123@gmail.com",
-									"14/09/2000",
-									"1234"
-		)
 		servicioExpuesto.registrarUsuario(userNuevo)
-		Assert.assertTrue(servicioExpuesto.repositorio.buscarUsuario("alquimia").nombreUsuario == "alquimia")
+		verify(homePrueba,times(1)).guardarUsuario(userNuevo)
 	}
 
 	@Test
 	def registroDeUsuarioExistente(){
-		var userNuevo = new Usuario("alquimia",
-									"garrapiniada",
-									"artesanal",
-									"123@gmail.com",
-									"14/09/2000",
-									"1234"
-		)
-		servicioExpuesto.registrarUsuario(userNuevo)
-		Assert.assertTrue(servicioExpuesto.repositorio.buscarUsuario("alquimia").nombreUsuario == "alquimia")
+		when(homePrueba.buscarUsuario("alquimia")).thenReturn(userNuevo)
+		try {
+			servicioExpuesto.registrarUsuario(userNuevo)
+		}
+		catch (Exception e){
+			verify(homePrueba,times(0)).guardarUsuario(userNuevo)
+		}
 	}
 	
+	@Test
+	def validacionDeCuentaDeUsuario(){
+		
+	}
+			
 }
