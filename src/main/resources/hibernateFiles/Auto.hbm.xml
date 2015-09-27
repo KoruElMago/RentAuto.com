@@ -4,26 +4,12 @@
  
 <hibernate-mapping>
     <class name="model.Auto" table="autos" >
-        <id name="id" type="java.lang.Integer">
-            <column name="ID" />
+        <id name="id" type="java.lang.Integer" column="id">
             <generator class="identity" />
         </id>
-
-        <property name="marca" type="string">
-            <column name="MARCA" length="20" not-null="true" unique="false" />
-        </property>
-                
-        <property name="modelo" type="string">
-            <column name="MODELO" length="20" not-null="true" unique="false" />
-        </property>
-        
-        <property name="patente" type="string">
-            <column name="PATENTE" length="20" not-null="true" unique="false" />
-        </property>
-        
-        <property name="año" type="int">
-            <column name="ANYO" not-null="false" unique="false"/>
-        </property>
-        
+        <property name="marca" type="string" column="marca" length="20"/>                
+        <property name="modelo" type="string" column="modelo" length="20"/>
+        <property name="patente" type="string" column="patente" length="20"/>
+        <property name="anyo" type="int" column="anyo"/>
     </class>
 </hibernate-mapping>
