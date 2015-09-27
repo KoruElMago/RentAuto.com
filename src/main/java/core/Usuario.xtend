@@ -1,10 +1,12 @@
 package core;
 
 import org.eclipse.xtend.lib.annotations.Accessors;
+import model.IUsuario
+import model.Reserva
 
 @Accessors
 
-class Usuario {
+class Usuario implements IUsuario{
 	
 	String nombreUsuario
 	String nombre
@@ -39,6 +41,14 @@ class Usuario {
 		
 	def void validar(){
 		this.estaValidada = true
+	}
+	
+	override agregarReserva(Reserva unaReserva) {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
+	override getReservas() {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
 	
 	}

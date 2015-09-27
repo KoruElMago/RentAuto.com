@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping>
+    <class name="core.usuario" table="usuario" >
+        <id name="id" type="java.lang.integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+
+        <property name="nombre" type="string">
+            <column name="NOMBRE" length="20" not-null="true" unique="false" />
+        </property>
+                
+        <property name="apellido" type="string">
+            <column name="APELLIDO" length="20" not-null="true" unique="false" />
+        </property>
+        
+        <property name="nombreUsuario" type="string">
+            <column name="nombreUsuario" not-null="false" unique="false"/>
+        </property>
+        
+        <property name="mail" type="string">
+            <column name="mail" not-null="false" unique="false"/>
+        </property>
+        
+        <property name="fechaNacimiento" type="string">
+            <column name="fechaNacimiento" not-null="false" unique="false"/>
+        </property>
+        
+        <property name="estaValidada" type="boolean">
+            <column name="estaValidada" not-null="false" unique="false"/>
+        </property>
+        
+        <property name="password" type="string">
+            <column name="password" not-null="false" unique="false"/>
+        </property>
+    </class>
+</hibernate-mapping>
