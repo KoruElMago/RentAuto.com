@@ -1,12 +1,13 @@
-package core
+package home
 
 import java.sql.Connection
 import java.sql.DriverManager
 import java.sql.PreparedStatement
 import org.eclipse.xtend.lib.annotations.Accessors
+import model.Usuario
 
 @Accessors
-class Home {
+class UsuarioLogInHome {
 
 	Connection conn = null;
 	PreparedStatement ps = null;

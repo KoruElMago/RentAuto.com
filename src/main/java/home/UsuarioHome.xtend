@@ -1,6 +1,6 @@
 package home
 
-import core.Usuario
+import model.Usuario
 
 class UsuarioHome {
 	def get(int id){

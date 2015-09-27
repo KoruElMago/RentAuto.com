@@ -1,18 +1,17 @@
 package ar.edu.unq.epers.model
 
-import core.Home
-import core.ServiciosExpuestos
-import core.Usuario
 import model.Auto
 import model.Categoria
 import model.Empresa
 import model.Familiar
 import model.IUsuario
+import model.ServiciosExpuestos
 import model.Ubicacion
+import model.Usuario
 import org.junit.Before
 
-import static org.mockito.Matchers.*
 import static org.mockito.Mockito.*
+import home.UsuarioLogInHome
 
 class AbstractTest {
 	protected Auto auto
@@ -22,7 +21,7 @@ class AbstractTest {
 	protected IUsuario usuarioPrueba
 	protected IUsuario usuarioEmpresa
 	protected Empresa empresa
-	protected Home homePrueba
+	protected UsuarioLogInHome homePrueba
 	protected Usuario usuarioRegistro
 	protected ServiciosExpuestos servicioExpuesto
 	protected Usuario userNuevo
@@ -46,7 +45,7 @@ class AbstractTest {
 		
 		empresa.usuarios.add(usuarioEmpresa)
 		
-		homePrueba = mock(Home)
+		homePrueba = mock(UsuarioLogInHome)
 		usuarioRegistro = mock(Usuario)
 		servicioExpuesto = new ServiciosExpuestos(homePrueba)
 		

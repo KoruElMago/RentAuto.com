@@ -1,17 +1,18 @@
-package core
+package model
 
 import exceptions.NuevaPasswordInvalida
 import exceptions.UsuarioNoExiste
 import exceptions.UsuarioYaExisteException
 import exceptions.ValidacionException
+import home.UsuarioLogInHome
 import org.eclipse.xtend.lib.annotations.Accessors
 
 class ServiciosExpuestos {
 	
 	@Accessors
-	var Home repositorio
+	var UsuarioLogInHome repositorio
 	
-	new(Home newHome) {
+	new(UsuarioLogInHome newHome) {
 		repositorio = newHome
 	}
 	

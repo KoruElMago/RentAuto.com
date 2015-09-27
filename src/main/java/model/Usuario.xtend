@@ -1,4 +1,4 @@
-package core;
+package model;
 
 import org.eclipse.xtend.lib.annotations.Accessors;
 import model.IUsuario

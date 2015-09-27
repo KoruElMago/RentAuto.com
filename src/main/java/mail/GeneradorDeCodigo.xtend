@@ -1,6 +1,6 @@
 package mail
 
-import core.Usuario
+import model.Usuario
 
 class GeneradorDeCodigo {
 	

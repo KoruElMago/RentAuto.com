@@ -1,6 +1,6 @@
 package services
 
-import core.Usuario
+import model.Usuario
 import home.SessionManager
 import home.UsuarioHome
 
