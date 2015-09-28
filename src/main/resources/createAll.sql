@@ -3,14 +3,15 @@ CREATE SCHEMA Epers_Rentauto;
 
 USE Epers_Rentauto;
 
-create table 'Epers_Rentauto'.'usuarios' (
-	id INT NOT NULL auto_increment,
-	nombre_usuario VARCHAR(15) PRIMARY KEY NOT NULL,
-	nombre VARCHAR(15) NOT NULL,
-	apellido VARCHAR(15) NOT NULL,
-	email VARCHAR(30) NOT NULL,
-	fecha_nacimiento VARCHAR(10) NOT NULL,
-	esta_validada BOOLEAN NOT NULL,
-	codigo_validacion INTEGER NOT NULL,
-	PRIMARY KEY(id)
-)
+CREATE TABLE  `Epers_Rentauto`.`usuarios` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `NOMBRE` varchar(20) NOT NULL,
+  `NOMBRE_USUARIO` varchar(20) NOT NULL,
+  `APELLIDO` varchar(20) NOT NULL,
+  `EMAIL` varchar(20),
+  `FECHA_NACIMIENTO` date NOT NULL,
+  `ESTA_VALIDADA` boolean,
+  `CODIGO_VALIDACION` varchar(30),
+  `PASSWORD` varchar(20),
+  PRIMARY KEY (`ID`)
+) ENGINE = InnoDB AUTO_INCREMENT=1;
