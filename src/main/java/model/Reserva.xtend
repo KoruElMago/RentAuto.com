@@ -42,14 +42,12 @@ class Reserva {
 	}
 	
 	def seSuperpone(Date desde, Date hasta){
-		if(inicio <= desde && desde <= fin )
-			return true
-		if(inicio <= hasta && hasta <= fin )
-			return true
-		if(desde <= inicio && fin <= hasta)
-			return true
+		return((inicio <= desde && desde <= fin )
+			||
+		       (inicio <= hasta && hasta <= fin )
+			||
+		       (desde <= inicio && fin <= hasta))
 			
-		return false	
 	}
 	
 	def costoPorDia(){
