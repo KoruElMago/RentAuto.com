@@ -3,14 +3,14 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
  
 <hibernate-mapping>
-    <class name="model.usuario" table="usuarios" >
-        <id name="id" type="java.lang.integer" column="id">
+    <class name="model.Usuario" table="usuarios" >
+        <id name="id" type="integer" column="id">
             <generator class="increment" />
         </id>
         <property name="nombre" type="string" column="NOMBRE" length="20"/>
         <property name="apellido" type="string" column="APELLIDO" length="20"/>
         <property name="nombreUsuario" type="string" column="nombreUsuario" length="20"/>
-        <property name="mail" type="string" column="mail" length="30"/>
+        <property name="email" type="string" column="email" length="30"/>
         <property name="fechaNacimiento" type="date" column="fechaNacimiento"/>
         <property name="estaValidada" type="boolean" column="estaValidada"/>
         <property name="password" type="string" column="password" length="20"/>

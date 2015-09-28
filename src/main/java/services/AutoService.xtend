@@ -14,16 +14,8 @@ class AutoService {
 		])
 	}
 
-	def crearAuto(String marca, String modelo, int anio,String patente, Categoria categoria, Double costoBase, Ubicacion ubicacionInicial) {
+	def crearAuto(Auto auto) {
 		SessionManager.runInSession([
-			var auto = new Auto(marca,
-								   modelo,
-								   anio,
-								   patente,
-								   categoria,
-								   costoBase,
-								   ubicacionInicial
-			);
 			new AutoHome().save(auto)
 			Auto
 		]);

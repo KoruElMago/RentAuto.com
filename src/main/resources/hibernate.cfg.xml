@@ -6,12 +6,20 @@
 	<session-factory>
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 
-		<property name="hibernate.connection.url">jdbc:mysql://localhost/alumnos</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost/Epers_Rentauto</property>
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password">root</property>
 
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-		<property name="hibernate.hbm2ddl.auto">create-drop</property>
+		<property name="hibernate.hbm2ddl.auto">create</property>
 		<property name="show_sql">true</property>
+		
+        <mapping resource="Auto.hbm.xml"></mapping>
+        <mapping resource="Reserva.hbm.xml"></mapping>
+        <mapping resource="Usuario.hbm.xml"></mapping>
+        <mapping resource="Categoria.hbm.xml"></mapping>
+		<mapping resource="Ubicacion.hbm.xml"></mapping>
+		<mapping resource="Empresa.hbm.xml"></mapping>
+
 	</session-factory>
 </hibernate-configuration>

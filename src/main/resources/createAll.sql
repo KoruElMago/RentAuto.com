@@ -1,4 +1,9 @@
-create table USUARIOS (
+DROP SCHEMA IF EXISTS Epers_Rentauto;
+CREATE SCHEMA Epers_Rentauto;
+
+USE Epers_Rentauto;
+
+create table 'Epers_Rentauto'.'usuarios' (
 	id INT NOT NULL auto_increment,
 	nombre_usuario VARCHAR(15) PRIMARY KEY NOT NULL,
 	nombre VARCHAR(15) NOT NULL,

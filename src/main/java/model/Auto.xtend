@@ -9,13 +9,13 @@ class Auto {
 	int id
 	String marca
 	String modelo
-	Integer año
+	Integer anio
 	String patente
 	Double costoBase
 		Categoria categoria
 	
 	//Debe estar ordenados
-	List<Reserva> reservas = newArrayList
+	List<Reserva> reservas
 	Ubicacion ubicacionInicial
 	
 	new(){
@@ -25,7 +25,7 @@ class Auto {
 	new(String marca, String modelo, Integer anio, String patente, Categoria categoria, Double costoBase, Ubicacion ubicacionInicial){
 		this.marca = marca
 		this.modelo = modelo
-		this.año = anio
+		this.anio = anio
 		this.patente = patente
 		this.costoBase = costoBase
 		this.categoria = categoria

@@ -5,7 +5,6 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.Date
 
 @Accessors
-
 class Usuario implements IUsuario{
 	
 	int id
@@ -18,7 +17,7 @@ class Usuario implements IUsuario{
 	String codigoValidacion
 	String password
 	
-	List<Reserva> reservas = newArrayList
+	List<Reserva> reservas
 
 	//Estructura
 	

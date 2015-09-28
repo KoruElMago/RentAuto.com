@@ -2,7 +2,6 @@ package services
 
 import home.SessionManager
 import home.UsuarioHome
-import java.util.Date
 import model.Usuario
 
 class UsuarioService {
@@ -13,11 +12,10 @@ class UsuarioService {
 		])
 	}
 
-	def crearUsuario(String user, String nombre, String apellido, String email, Date fechaNacimiento, String password) {
+	def crearUsuario(Usuario user) {
 		SessionManager.runInSession([
-			var usuario = new Usuario(user,nombre,apellido,email,fechaNacimiento,password);
-			new UsuarioHome().save(usuario)
-			usuario
+			new UsuarioHome().save(user)
+			Usuario
 		]);
 	}
 	
