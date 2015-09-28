@@ -15,7 +15,7 @@ class Empresa {
 	Double valorMaximoPorDia
 	List<Categoria> categoriasAdmitidas = newArrayList
 	
-	def agregarReserva(Reserva unaReserva){
+	def void agregarReserva(Reserva unaReserva){
 		unaReserva.validarReserva
 		reservas.add(unaReserva)
 	}

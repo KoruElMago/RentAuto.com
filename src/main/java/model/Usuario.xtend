@@ -1,21 +1,24 @@
 package model;
 
-import org.eclipse.xtend.lib.annotations.Accessors;
-import model.IUsuario
-import model.Reserva
+import java.util.List
+import org.eclipse.xtend.lib.annotations.Accessors
+import java.util.Date
 
 @Accessors
 
 class Usuario implements IUsuario{
 	
+	int id
 	String nombreUsuario
 	String nombre
 	String apellido
 	String email
-	String fechaNacimiento
+	Date fechaNacimiento
 	boolean estaValidada
 	String codigoValidacion
 	String password
+	
+	List<Reserva> reservas = newArrayList
 
 	//Estructura
 	
@@ -27,7 +30,7 @@ class Usuario implements IUsuario{
 		String nombre, 
 		String apellido, 
 		String email, 
-		String fechaNacimiento,
+		Date fechaNacimiento,
 		String password) {
 			
 		this.nombreUsuario = nombreUsuario
@@ -44,11 +47,11 @@ class Usuario implements IUsuario{
 	}
 	
 	override agregarReserva(Reserva unaReserva) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		reservas.add(unaReserva)
 	}
 	
 	override getReservas() {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		reservas
 	}
 	
 	}

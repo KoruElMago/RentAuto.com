@@ -3,16 +3,20 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
  
 <hibernate-mapping>
-    <class name="core.usuario" table="usuarios" >
+    <class name="model.usuario" table="usuarios" >
         <id name="id" type="java.lang.integer" column="id">
-            <generator class="identity" />
+            <generator class="increment" />
         </id>
         <property name="nombre" type="string" column="NOMBRE" length="20"/>
         <property name="apellido" type="string" column="APELLIDO" length="20"/>
-        <property name="nombreUsuario" type="string" column="nombreUsuario"/>
-        <property name="mail" type="string" column="mail"/>
-        <property name="fechaNacimiento" type="string" column="fechaNacimiento"/>
+        <property name="nombreUsuario" type="string" column="nombreUsuario" length="20"/>
+        <property name="mail" type="string" column="mail" length="30"/>
+        <property name="fechaNacimiento" type="date" column="fechaNacimiento"/>
         <property name="estaValidada" type="boolean" column="estaValidada"/>
-        <property name="password" type="string" column="password"/>
+        <property name="password" type="string" column="password" length="20"/>
+        <set name="reservas">
+        	<key column="id"/>
+            <one-to-many class="model.Reserva"/>
+        </set>
     </class>
 </hibernate-mapping>

@@ -43,7 +43,7 @@ class UsuarioLogInHome {
             ps2.setString(2, usuario.nombre)
             ps2.setString(3, usuario.apellido)
             ps2.setString(4, usuario.email)
-            ps2.setString(5, usuario.fechaNacimiento)
+            ps2.setDate(5, new java.sql.Date(usuario.fechaNacimiento.getTime()))
             ps2.setBoolean(6, usuario.estaValidada)
             ps2.setString(7, usuario.codigoValidacion)
 			ps2.setString(8, usuario.password);
@@ -73,7 +73,7 @@ class UsuarioLogInHome {
 					rs.getString("NOMBRE"),
 					rs.getString("APELLIDO"),
 					rs.getString("EMAIL"),
-					rs.getString("FECHA_NACIMIENTO"),
+					rs.getDate("FECHA_NACIMIENTO"),
 					rs.getString("PASSWORD")
 				)
 				user.codigoValidacion = rs.getString("CODIGO_VALIDACION")
@@ -107,7 +107,7 @@ class UsuarioLogInHome {
 					rs.getString("NOMBRE"),
 					rs.getString("APELLIDO"),
 					rs.getString("EMAIL"),
-					rs.getString("FECHA_NACIMIENTO"),
+					rs.getDate("FECHA_NACIMIENTO"),
 					rs.getString("PASSWORD")
 				)
 				user.codigoValidacion = rs.getString("CODIGO_VALIDACION")

@@ -5,11 +5,18 @@
 <hibernate-mapping>
     <class name="model.Auto" table="autos" >
         <id name="id" type="java.lang.Integer" column="id">
-            <generator class="identity" />
+            <generator class="increment" />
         </id>
         <property name="marca" type="string" column="marca" length="20"/>                
         <property name="modelo" type="string" column="modelo" length="20"/>
         <property name="patente" type="string" column="patente" length="20"/>
-        <property name="anyo" type="int" column="anyo"/>
+        <property name="anio" type="int" column="anyo"/>
+		<property name="costoBase" type="double" column="costoBase"/>
+    	<many-to-one name="categoria" column="categoria"/>
+    	<many-to-one name="ubicacionInicial" column="ubicacionInicial"/>
+        <set name="reservas">
+        	<key column="id"/>
+            <one-to-many class="model.Reserva"/>
+        </set>
     </class>
 </hibernate-mapping>

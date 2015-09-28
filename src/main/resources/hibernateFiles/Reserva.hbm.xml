@@ -4,12 +4,15 @@
  
 <hibernate-mapping>
     <class name="model.reserva" table="reservas" >
-        <id name="numeroSolicitud" type="java.lang.integer" column="id">
-            <generator class="identity" />
+        <id name="id" type="java.lang.integer" column="id">
+            <generator class="increment" />
         </id>
-	<many-to-one name="origen" column="origen" class="Ubicacion"/>
-	<many-to-one name="destino" column="destino" class="Ubicacion"/>
-	<many-to-one name="auto" column="auto" class="Auto"/>
-	<many-to-one name="usuario" column="usuario" class="Usuario"/>
+    <property name="numeroSolicitud" type="integer" column="numeroSolicitud"/>
+	<property name="inicio" type="date" column="inicio"/>
+	<property name="fin" type="date" column="fin"/>
+	<many-to-one name="origen" column="origen" class="model.Ubicacion"/>
+	<many-to-one name="destino" column="destino" class="model.Ubicacion"/>
+	<many-to-one name="auto" column="auto" class="model.Auto"/>
+	<many-to-one name="usuario" column="usuario" class="model.Usuario"/>
     </class>
 </hibernate-mapping>

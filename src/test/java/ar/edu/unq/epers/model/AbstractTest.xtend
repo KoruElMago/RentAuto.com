@@ -12,6 +12,7 @@ import org.junit.Before
 
 import static org.mockito.Mockito.*
 import home.UsuarioLogInHome
+import java.util.Date
 
 class AbstractTest {
 	protected Auto auto
@@ -53,7 +54,7 @@ class AbstractTest {
 								"garrapiniada",
 								"artesanal",
 								"123@gmail.com",
-								"14/09/2000",
+								new Date(1988,9,10),
 								"1234")
 	}
 }

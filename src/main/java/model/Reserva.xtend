@@ -9,6 +9,7 @@ import static ar.edu.unq.epers.extensions.DateExtensions.*
 
 @Accessors
 class Reserva {
+	int id
 	Integer numeroSolicitud
 	Ubicacion origen
 	Ubicacion destino

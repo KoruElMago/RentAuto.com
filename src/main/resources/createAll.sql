@@ -9,24 +9,3 @@ create table USUARIOS (
 	codigo_validacion INTEGER NOT NULL,
 	PRIMARY KEY(id)
 )
-create table AUTOS(
-	id INT NOT NULL auto_increment,
-	marca VARCHAR(20) NOT NULL,
-	modelo VARCHAR(20) NOT NULL,
-	anyo INT NOT NULL,
-	patente VARCHAR(10),
-	costoBase DOUBLE PRECISION,
-	categoria INT NOT NULL,
-	ubicacionInicial INT NOT NULL,
-	PRIMARY KEY (id)
-)
-create table RESERVAS(
-	id INT NOT NULL auto_increment,
-	origen INT NOT NULL,
-	destino INT NOT NULL,
-	inicio DATE,
-	fin DATE,
-	auto INT,
-	usuario INT,
-	PRIMARY KEY(id)
-)
