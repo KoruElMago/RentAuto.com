@@ -7,6 +7,8 @@ import org.junit.Test
 import model.Categoria
 import model.Familiar
 import model.Ubicacion
+import org.junit.After
+import home.SessionManager
 
 class AutoMapTest {
 	
@@ -22,6 +24,8 @@ class AutoMapTest {
 		auto = new Auto("Ford","Focus",2008,"LEE337",categoria,59.99,ubicacion)
 		service = new AutoService
 	}
+	
+	
 	
 	@Test
 	def void guardoUnAutoEnLaDB(){

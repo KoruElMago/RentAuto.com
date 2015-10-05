@@ -49,7 +49,7 @@ class ServiciosExpuestos {
 	
 	def void cambiarPassword ( String userName, String password, String nuevaPassword) throws NuevaPasswordInvalida{
 		
-		if (password == nuevaPassword)|| (nuevaPassword.length < 4) {
+		if ((password == nuevaPassword)|| (nuevaPassword.length < 4)) {
 			throw new NuevaPasswordInvalida
 		}
 		var user = repositorio.buscarUsuario(userName)
