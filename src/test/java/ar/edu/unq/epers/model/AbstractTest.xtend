@@ -29,6 +29,7 @@ class AbstractTest {
 
 	@Before
 	def void setUp() {
+		
 		categoriaFamiliar = new Familiar
 		retiro = new Ubicacion("Retiro")
 		aeroparque = new Ubicacion("Aeroparque")

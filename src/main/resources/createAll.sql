@@ -13,5 +13,5 @@ CREATE TABLE  `Epers_Rentauto`.`usuarios` (
   `ESTA_VALIDADA` boolean,
   `CODIGO_VALIDACION` varchar(30),
   `PASSWORD` varchar(20),
-  PRIMARY KEY (`ID`)
+  PRIMARY KEY (`banana`)
 ) ENGINE = InnoDB AUTO_INCREMENT=1;

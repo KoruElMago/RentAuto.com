@@ -11,6 +11,11 @@ import services.AutoService
 import model.Turismo
 import model.Deportivo
 import model.TodoTerreno
+import org.junit.Test
+import org.junit.Assert.*
+import org.hibernate.Query
+import java.util.List
+import org.junit.Assert
 
 class AutoQueryTest {
 	
@@ -52,8 +57,15 @@ class AutoQueryTest {
 	Ubicacion u9
 	Ubicacion u10
 	
+	SessionManager session
+	
+	
+	
 	@Before
 	def void setUp(){
+		SessionManager::getSessionFactory().openSession()
+		
+		
 		c1 = new Familiar=>[nombre="MiCategoria"]
 		c2 = new Turismo=>[nombre="MiCategoria"]
 		c3 = new Deportivo=>[nombre="MiCategoria"]
@@ -72,34 +84,81 @@ class AutoQueryTest {
 		
 		
 		a1 = new Auto("Ford","Focus",2008,"LEE337",c1,59.99,u1)
-		a2 = new Auto("Ford","Focus",2010,"LBM267",c1,59.99,u1)
-		a3 = new Auto("Ford","Focus",2008,"RMN542",c1,59.99,u1)
-		a4 = new Auto("Fiat","model1",2009,"LEE337",c1,59.99,u1)
-		a5 = new Auto("Fiat","model1",2009,"LEE337",c1,59.99,u1)
-		a6 = new Auto("Fiat","model2",2010,"LEE337",c1,59.99,u1)
-		a7 = new Auto("Fiat","model2",2008,"LEE337",c1,59.99,u1)
-		a8 = new Auto("Ford","Focus",2008,"LEE337",c1,59.99,u1)
-		a9 = new Auto("Ford","Focus",2008,"LEE337",c1,59.99,u1)
-		a10 = new Auto("Ford","Focus",2008,"LEE337",c1,59.99,u1)
-		a11 = new Auto("Ford","Focus",2008,"LEE337",c1,59.99,u1)
-		a12 = new Auto("Ford","Focus",2008,"LEE337",c1,59.99,u1)
-		a13 = new Auto("Ford","Focus",2008,"LEE337",c1,59.99,u1)
-		a14 = new Auto("Ford","Focus",2008,"LEE337",c1,59.99,u1)
-		a15 = new Auto("Ford","Focus",2008,"LEE337",c1,59.99,u1)
-		a16 = new Auto("Ford","Focus",2008,"LEE337",c1,59.99,u1)
-		a17 = new Auto("Ford","Focus",2008,"LEE337",c1,59.99,u1)
-		a18 = new Auto("Ford","Focus",2008,"LEE337",c1,59.99,u1)
-		a19 = new Auto("Ford","Focus",2008,"LEE337",c1,59.99,u1)
-		a20 = new Auto("Ford","Focus",2008,"LEE337",c1,59.99,u1)
+		a2 = new Auto("Ford","Focus",2010,"LBM267",c2,59.99,u1)
+		a3 = new Auto("Ford","Focus",2008,"RMN542",c2,59.99,u2)
+		a4 = new Auto("Ford","model1",2009,"RES025",c3,59.99,u2)
+		a5 = new Auto("Ford","model1",2009,"LKM224",c4,59.99,u3)
+		a6 = new Auto("Ford","model2",2010,"LJH359",c4,59.99,u3)
+		a7 = new Auto("Fiat","model2",2010,"GHS462",c1,59.99,u3)
+		a8 = new Auto("Fiat","Focus",2008,"MHQ904",c1,59.99,u4)
+		a9 = new Auto("Fiat","Focus",2008,"RTG756",c1,59.99,u4)
+		a10 = new Auto("Fiat","Focus",2009,"POH271",c2,59.99,u5)
+		a11 = new Auto("Fiat","Focus",2009,"KHQ325",c2,59.99,u5)
+		a12 = new Auto("Peugeot","Focus",2009,"BGH446",c1,59.99,u5)
+		a13 = new Auto("Peugeot","Focus",2009,"EYH908",c3,59.99,u6)
+		a14 = new Auto("Peugeot","Focus",2008,"AFG593",c2,59.99,u6)
+		a15 = new Auto("Peugeot","Focus",20010,"GHJ645",c3,59.99,u6)
+		a16 = new Auto("Peugeot","Focus",20011,"DDD342",c4,59.99,u7)
+		a17 = new Auto("Peugeot","Focus",20011,"LIV897",c3,59.99,u7)
+		a18 = new Auto("Citroen","Focus",20011,"HUB556",c1,59.99,u8)
+		a19 = new Auto("Citroen","Focus",20011,"CVK904",c2,59.99,u8)
+		a20 = new Auto("Citroen","Focus",20012,"UNQ666",c4,59.99,u9)
+		
 		
 		service = new AutoService
+		
+		service.crearAuto(a1)
+		service.crearAuto(a2)
+		service.crearAuto(a3)
+		service.crearAuto(a4)
+		service.crearAuto(a5)
+		service.crearAuto(a6)
+		service.crearAuto(a7)
+		service.crearAuto(a8)
+		service.crearAuto(a9)
+		service.crearAuto(a10)
+		service.crearAuto(a11)
+		service.crearAuto(a12)
+		service.crearAuto(a13)
+		service.crearAuto(a14)
+		service.crearAuto(a15)
+		service.crearAuto(a16)
+		service.crearAuto(a17)
+		service.crearAuto(a18)
+		service.crearAuto(a19)
+		service.crearAuto(a20)
+		  
 		
 		
 		
 	}
 	
-	@After
+		@After
 	def limpiar() {
     	SessionManager::resetSessionFactory()
 	}
+
+	
+	@Test
+	def void elementosEnLaBBDD(){
+		
+		//val List autos = service.getAllAuto()
+		val auto1 = service.consultarAuto(a1.getPatente) 
+		Assert.assertEquals(auto1.getMarca, a1.getMarca)
+		Assert.assertEquals(auto1.getAnio, a1.getAnio)
+		//val s1 = auto1.getCategoria().nombre
+		val s2 = a1.getCategoria().nombre
+		//Assert.assertEquals(s1, s2)
+	
+		
+		
+		
+		//val List autos = test.list()
+		//q.setInteger("mod", 2008)
+		//Assert.assertEquals(1, autos.length)
+		//Assert.assertTrue(n.contains(a1))
+		//val Integer cantidad = (Integer) q.uniqueResult()
+		
+	}
+	
 }

@@ -14,9 +14,16 @@
         <property name="fechaNacimiento" type="date" column="fechaNacimiento"/>
         <property name="estaValidada" type="boolean" column="estaValidada"/>
         <property name="password" type="string" column="password" length="20"/>
-        <set name="reservas">
-        	<key column="id"/>
-            <one-to-many class="model.Reserva"/>
-        </set>
+        
+        
+          <bag name="reservas" table="reservas"
+                inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id" not-null="true" />
+            </key>
+            <one-to-many class="model.Reserva" />
+        </bag>
+        
+        
     </class>
 </hibernate-mapping>

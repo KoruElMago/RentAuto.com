@@ -1,26 +1,43 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
- 
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="model.Empresa" table="empresas" >
-        <id name="cuit" type="string" column="cuit">
-            <generator class="identity" />
-        </id>
-    <property name="nombreEmpresa" type="string" column="nombreEmpresa" length="30"/>
-	<property name="cantidadMaximaDeReservasActivas" type="integer" column="cantidadMaximaDeReservasActivas"/>
-    <set name="reservas">
-    	<key column="id"/>
-        <one-to-many class="model.Reserva"/>
-    </set>
-    <set name="usuarios">
-    	<key column="id"/>
-        <one-to-many class="model.Usuario"/>
-    </set>
-    <set name="categoriasAdmitidas">
-    	<key column="id"/>
-        <one-to-many class="model.Categoria"/>
-    </set>
-    <property name="valorMaximoPorDia" type="double" column="valorMaximoPorDia"/>
-    </class>
+ <class name="model.Empresa" table="empresas">
+  <id column="cuit" name="cuit" type="string">
+   <generator class="assigned"/>
+  </id>
+  <property column="nombreEmpresa" generated="never" lazy="false"
+   length="30" name="nombreEmpresa" type="string"/>
+  <property column="cantidadMaximaDeReservasActivas" generated="never"
+   lazy="false" name="cantidadMaximaDeReservasActivas" type="integer"/>
+  
+  <bag name="reservas" table="reservas"
+                inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id" not-null="true" />
+            </key>
+            <one-to-many class="model.Reserva" />
+        </bag>
+  
+  <bag name="usuarios" table="usuarios"
+                inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id" not-null="true" />
+            </key>
+            <one-to-many class="model.Usuario" />
+        </bag>
+  
+  
+    <bag name="categoriasAdmitidas" table="categoriasAdmitidas"
+                inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id" not-null="true" />
+            </key>
+            <one-to-many class="model.Categoria" />
+        </bag>
+        
+        
+  <property column="valorMaximoPorDia" generated="never" lazy="false"
+   name="valorMaximoPorDia" type="double"/>
+ </class>
 </hibernate-mapping>

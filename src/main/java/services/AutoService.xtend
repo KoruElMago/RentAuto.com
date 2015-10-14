@@ -5,12 +5,13 @@ import home.SessionManager
 import model.Auto
 import model.Categoria
 import model.Ubicacion
+import org.hibernate.Session
 
 class AutoService {
 	
-	def consultarAuto(int id) {
+	def consultarAuto(String patente) {
 		SessionManager.runInSession([
-			new AutoHome().get(id)
+			new AutoHome().get(patente)
 		])
 	}
 
@@ -21,4 +22,11 @@ class AutoService {
 		]);
 	}
 	
+	def getAllAuto(){
+		SessionManager.runInSession([
+		return (new AutoHome().getAll())
+		
+		]);
+     
+	}
 }

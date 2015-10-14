@@ -3,6 +3,7 @@ package model
 import java.util.Date
 import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
+import org.hibernate.collection.PersistentSet
 
 @Accessors
 class Auto {
@@ -16,6 +17,7 @@ class Auto {
 	
 	//Debe estar ordenados
 	List<Reserva> reservas
+	
 	Ubicacion ubicacionInicial
 	
 	new(){
@@ -30,6 +32,7 @@ class Auto {
 		this.costoBase = costoBase
 		this.categoria = categoria
 		this.ubicacionInicial = ubicacionInicial
+		
 	}
 
 	def getUbicacion(){

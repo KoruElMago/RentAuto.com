@@ -53,7 +53,7 @@ class SessionManager {
 		tlSession.get();
 	}
 
-	def synchronized static resetSessionFactory() {
+	def  synchronized static void resetSessionFactory() {
         if (sessionFactory != null) {
             sessionFactory.close();
             sessionFactory = null;
