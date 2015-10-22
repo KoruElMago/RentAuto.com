@@ -4,12 +4,12 @@
  
 <hibernate-mapping>
     <class name="model.Usuario" table="usuarios" >
-        <id name="id" type="integer" column="id">
-            <generator class="increment" />
+        <id name="nombreUsuario" type="string" column="usuario" length="20">
+            <generator class="assigned" />
         </id>
         <property name="nombre" type="string" column="NOMBRE" length="20"/>
         <property name="apellido" type="string" column="APELLIDO" length="20"/>
-        <property name="nombreUsuario" type="string" column="nombreUsuario" length="20"/>
+        <property name="id" type="integer" column="id"/>
         <property name="email" type="string" column="email" length="30"/>
         <property name="fechaNacimiento" type="date" column="fechaNacimiento"/>
         <property name="estaValidada" type="boolean" column="estaValidada"/>

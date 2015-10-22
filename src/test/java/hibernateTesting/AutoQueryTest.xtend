@@ -117,16 +117,7 @@ class AutoQueryTest {
 		service.crearAuto(a8)
 		service.crearAuto(a9)
 		service.crearAuto(a10)
-		service.crearAuto(a11)
-		service.crearAuto(a12)
-		service.crearAuto(a13)
-		service.crearAuto(a14)
-		service.crearAuto(a15)
-		service.crearAuto(a16)
-		service.crearAuto(a17)
-		service.crearAuto(a18)
-		service.crearAuto(a19)
-		service.crearAuto(a20)
+		
 		  
 		
 		
@@ -135,30 +126,64 @@ class AutoQueryTest {
 	
 		@After
 	def limpiar() {
+		service.borrar()
     	SessionManager::resetSessionFactory()
+    	
 	}
 
 	
 	@Test
 	def void elementosEnLaBBDD(){
+		val cantidadDeAutos = service.allAuto
+		Assert.assertEquals(cantidadDeAutos.size, 10)
 		
-		//val List autos = service.getAllAuto()
-		val auto1 = service.consultarAuto(a1.getPatente) 
-		Assert.assertEquals(auto1.getMarca, a1.getMarca)
-		Assert.assertEquals(auto1.getAnio, a1.getAnio)
-		//val s1 = auto1.getCategoria().nombre
-		val s2 = a1.getCategoria().nombre
-		//Assert.assertEquals(s1, s2)
-	
+		service.crearAuto(a11)
+		service.crearAuto(a12)
+		service.crearAuto(a13)
+		service.crearAuto(a14)
+		service.crearAuto(a15)
+		service.crearAuto(a16)
 		
+		val cantidadDeAutos2 = service.allAuto
+		Assert.assertEquals(cantidadDeAutos2.size, 16)
 		
+		service.crearAuto(a17)
+		service.crearAuto(a18)
+		service.crearAuto(a19)
+		service.crearAuto(a20)
 		
-		//val List autos = test.list()
-		//q.setInteger("mod", 2008)
-		//Assert.assertEquals(1, autos.length)
-		//Assert.assertTrue(n.contains(a1))
-		//val Integer cantidad = (Integer) q.uniqueResult()
+		val cantidadDeAutos3 = service.allAuto
+		Assert.assertEquals(cantidadDeAutos3.size, 20)
+		
+		service.crearAuto(a1)
+		service.crearAuto(a1)
+		service.crearAuto(a1)
+		service.crearAuto(a1)
+		service.crearAuto(a1)
+		service.crearAuto(a1)
+		service.crearAuto(a1)
+		
+		val cantidadDeAutos4 = service.allAuto
+		Assert.assertEquals(cantidadDeAutos4.size, 20)
+		
 		
 	}
 	
+	
+	@Test
+	def void consultarUnAuto(){
+		val auto1 = service.consultarAuto(a1.getPatente) 
+		Assert.assertEquals(auto1.getMarca, a1.getMarca)
+		Assert.assertEquals(auto1.getAnio, a1.getAnio)
+		
+		val auto2 = service.consultarAuto(a2.getPatente) 
+		Assert.assertEquals(auto2.getMarca, a2.getMarca)
+		Assert.assertEquals(auto2.getAnio, a2.getAnio)
+	}
+	
+	@Test
+	def void consultarUnAutoInexistente(){
+	val autoNull = service.consultarAuto("unaPatenteCualquiera") 
+		Assert.assertEquals(autoNull, null)	
+	}
 }

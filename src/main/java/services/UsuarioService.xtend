@@ -19,4 +19,18 @@ class UsuarioService {
 		]);
 	}
 	
+	def obtenerUsuarios() {
+		SessionManager.runInSession([
+			new UsuarioHome().obtenerUsuarios()
+			
+		]);
+	}
+	
+	def borrar() {
+		SessionManager.runInSession([
+			new UsuarioHome().borrarUsuarios()
+			Usuario
+		]);
+	}
+	
 }

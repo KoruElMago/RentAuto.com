@@ -6,7 +6,6 @@ import org.joda.time.DateTime
 import org.joda.time.Days
 
 import static ar.edu.unq.epers.extensions.DateExtensions.*
-
 @Accessors
 class Reserva {
 	int id
@@ -29,9 +28,8 @@ class Reserva {
 	
 	def void validar(){
 		val ubicacionInicial = auto.ubicacionParaDia(inicio)
-		
 		if(ubicacionInicial != origen)
-			throw new ReservaException("El auto no tiene la ubicación de origen buscada")
+		  throw new ReservaException("El auto no tiene la ubicación de origen buscada")
 		
 		if(!auto.estaLibre(inicio, fin))
 			throw new ReservaException("El auto no esta libre en el periodo pedido")

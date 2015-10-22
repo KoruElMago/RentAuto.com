@@ -18,8 +18,14 @@
    
    
  
-  <many-to-one cascade="all" column="categoria" name="categoria" class="model.Categoria"/>
   <many-to-one cascade="all" column="ubicacionInicial" name="ubicacionInicial" class="model.Ubicacion"/>
+<many-to-one cascade="all" column="categoria" name="categoria" class="model.Categoria"/>
+  
+		
+  
+  
+  
+  
   
   
   

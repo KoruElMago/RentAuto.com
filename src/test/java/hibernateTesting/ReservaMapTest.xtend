@@ -9,6 +9,8 @@ import model.Auto
 import java.util.Date
 import model.Usuario
 import org.junit.Test
+import org.junit.After
+import home.SessionManager
 
 class ReservaMapTest {
 	
@@ -32,6 +34,12 @@ class ReservaMapTest {
 			usuario = user
 		]
 		service = new ReservaService
+	}
+	
+	@After
+	def limpiar() {
+		service.borrar()
+    	SessionManager::resetSessionFactory()
 	}
 	
 	@Test

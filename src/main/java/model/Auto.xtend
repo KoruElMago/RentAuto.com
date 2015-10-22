@@ -4,6 +4,8 @@ import java.util.Date
 import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.hibernate.collection.PersistentSet
+import org.hibernate.mapping.Bag
+import java.util.ArrayList
 
 @Accessors
 class Auto {
@@ -13,7 +15,7 @@ class Auto {
 	Integer anio
 	String patente
 	Double costoBase
-		Categoria categoria
+	Categoria categoria
 	
 	//Debe estar ordenados
 	List<Reserva> reservas
@@ -32,7 +34,8 @@ class Auto {
 		this.costoBase = costoBase
 		this.categoria = categoria
 		this.ubicacionInicial = ubicacionInicial
-		
+		//TODO own
+		this.reservas = new ArrayList<Reserva>
 	}
 
 	def getUbicacion(){
@@ -40,12 +43,18 @@ class Auto {
 	}
 	
 	def ubicacionParaDia(Date unDia){
+		//if (reservas != null){  OWN
+		if(reservas.size > 0) {
+		
 		val encontrado = reservas.findLast[ it.fin <= unDia ]
-		if(encontrado != null){
+			if(encontrado != null){
 			return encontrado.destino
-		}else{
+								  }
+							  }
+			else
+			{
 			return ubicacionInicial
-		}
+			}
 	}
 	
 	def Boolean estaLibre(Date desde, Date hasta){

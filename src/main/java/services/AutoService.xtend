@@ -29,4 +29,11 @@ class AutoService {
 		]);
      
 	}
+	
+	def borrar(){
+		SessionManager.runInSession([
+			new AutoHome().borrar()
+			Auto
+		])
+	}
 }

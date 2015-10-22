@@ -13,7 +13,7 @@
 		
 		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 		<property name="hbm2ddl.auto">create</property>
-		<property name="hbm2ddl.auto">validate</property>
+		
 		
 		
 		
@@ -34,8 +34,9 @@
         <mapping resource="Auto.hbm.xml"></mapping>
         <mapping resource="Reserva.hbm.xml"></mapping>
         <mapping resource="Usuario.hbm.xml"></mapping>
-        <mapping resource="Categoria.hbm.xml"></mapping>
+         <mapping resource="Categoria.hbm.xml"></mapping>
 		<mapping resource="Ubicacion.hbm.xml"></mapping>
+        
 		<mapping resource="Empresa.hbm.xml"></mapping>
 
 	</session-factory>
