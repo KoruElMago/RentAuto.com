@@ -7,7 +7,7 @@ import com.mongodb.BasicDBObject
 
 class Comentario {
 
-	String comentario
+	String comentario   
 	String calificacion
 	String privacidad
 	String patente
