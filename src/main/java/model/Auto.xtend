@@ -17,6 +17,7 @@ class Auto {
 	Double costoBase
 	Categoria categoria
 	
+	
 	//Debe estar ordenados
 	List<Reserva> reservas
 	
@@ -35,7 +36,7 @@ class Auto {
 		this.categoria = categoria
 		this.ubicacionInicial = ubicacionInicial
 		//TODO own
-		this.reservas = new ArrayList<Reserva>
+		this.reservas = new ArrayList<Reserva>()
 	}
 
 	def getUbicacion(){
