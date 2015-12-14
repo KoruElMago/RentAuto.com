@@ -21,6 +21,8 @@ public class PerfilUsuario {
   
   public PerfilUsuario(final Usuario usuario) {
     this.usuario = usuario;
+    SistemDB _sistemDB = new SistemDB();
+    this.baseDeComentarios = _sistemDB;
   }
   
   public boolean esAmigo(final Usuario usuario) {
@@ -39,13 +41,23 @@ public class PerfilUsuario {
         if (_not) {
           comentarios.remove(c);
         }
-        boolean _esAmigo = this.esAmigo(usuario);
-        boolean _not_1 = (!_esAmigo);
+        String _autor_1 = c.getAutor();
+        boolean _equals_1 = _autor_1.equals(this.usuario);
+        boolean _not_1 = (!_equals_1);
         if (_not_1) {
           String _privacidad = c.getPrivacidad();
-          boolean _equals_1 = _privacidad.equals(Privacidad.AMIGOS);
-          if (_equals_1) {
+          boolean _equals_2 = _privacidad.equals(Privacidad.SOLO_YO);
+          if (_equals_2) {
             comentarios.remove(c);
+          }
+          boolean _esAmigo = this.esAmigo(usuario);
+          boolean _not_2 = (!_esAmigo);
+          if (_not_2) {
+            String _privacidad_1 = c.getPrivacidad();
+            boolean _equals_3 = _privacidad_1.equals(Privacidad.AMIGOS);
+            if (_equals_3) {
+              comentarios.remove(c);
+            }
           }
         }
       }

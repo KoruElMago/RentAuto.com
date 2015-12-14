@@ -1,9 +1,7 @@
 package comentario;
 
-import com.google.common.base.Objects;
 import com.mongodb.BasicDBObject;
 import comentario.Privacidad;
-import comentario.SistemDB;
 import model.Calificacion;
 import model.Usuario;
 import org.eclipse.xtend.lib.annotations.Accessors;
@@ -19,8 +17,6 @@ public class Comentario {
   private String privacidad;
   
   private String patente;
-  
-  private SistemDB servExpuesto;
   
   private String autor;
   
@@ -44,19 +40,6 @@ public class Comentario {
     this.patente = patente;
     String _nombreUsuario = autor.getNombreUsuario();
     this.autor = _nombreUsuario;
-    SistemDB _sistemDB = new SistemDB();
-    this.servExpuesto = _sistemDB;
-    this.servExpuesto.guardarComentario(autor, this);
-  }
-  
-  public boolean esPrivado() {
-    String _string = this.privacidad.toString();
-    return Objects.equal(_string, "SOLO_YO");
-  }
-  
-  public boolean esAmigo() {
-    String _string = this.privacidad.toString();
-    return Objects.equal(_string, "AMIGOS");
   }
   
   @Pure
@@ -93,15 +76,6 @@ public class Comentario {
   
   public void setPatente(final String patente) {
     this.patente = patente;
-  }
-  
-  @Pure
-  public SistemDB getServExpuesto() {
-    return this.servExpuesto;
-  }
-  
-  public void setServExpuesto(final SistemDB servExpuesto) {
-    this.servExpuesto = servExpuesto;
   }
   
   @Pure

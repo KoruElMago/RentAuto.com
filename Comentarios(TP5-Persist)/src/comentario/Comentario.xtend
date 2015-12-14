@@ -14,7 +14,6 @@ class Comentario {
 	String calificacion
 	String privacidad
 	String patente
-	SistemDB servExpuesto
   	String autor
 
 	
@@ -32,19 +31,5 @@ class Comentario {
 		this.privacidad = privacidad.toString
 		this.patente = patente
 		this.autor = autor.nombreUsuario
-		this.servExpuesto = new SistemDB()
-		this.servExpuesto.guardarComentario(autor, this)
 	}	
-	
-	
-	def esPrivado(){
-		return(privacidad.toString =="SOLO_YO") 
-	}
-	
-	def esAmigo(){
-		return(privacidad.toString =="AMIGOS")
-	}
-	
-	
-	
 }
