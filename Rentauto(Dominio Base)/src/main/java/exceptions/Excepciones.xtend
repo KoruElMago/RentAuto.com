@@ -38,5 +38,15 @@ class NoPuedeEnviarMail extends Exception{
 		super("Mail no se pudo enviar. Por favor complete los espacios vacios")
 	}	
 	
+	
+ 	}
+ 	
+class AutoNoDisponible extends Exception{
+	
+	new(){
+		super("El auto que intenta reservar no se encuentra disponible")
+	}	
+ 		
+ 		
 		
 }
