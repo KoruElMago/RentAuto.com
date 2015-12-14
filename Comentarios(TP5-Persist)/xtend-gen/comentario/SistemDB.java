@@ -10,7 +10,6 @@ import com.mongodb.MongoClient;
 import com.mongodb.WriteResult;
 import comentario.Collection;
 import comentario.Comentario;
-import comentario.PerfilUsuario;
 import java.rmi.UnknownHostException;
 import java.util.List;
 import model.Usuario;
@@ -68,10 +67,10 @@ public class SistemDB {
     return _xblockexpression;
   }
   
-  public BasicDBObject toDBObjectComentario(final Usuario u, final Comentario coment) {
+  public BasicDBObject toDBObjectComentario(final Comentario coment) {
     BasicDBObject dBObjectComentario = new BasicDBObject();
-    String _nombre = u.getNombre();
-    dBObjectComentario.append("usuario", _nombre);
+    String _autor = coment.getAutor();
+    dBObjectComentario.append("usuario", _autor);
     String _patente = coment.getPatente();
     dBObjectComentario.append("auto", _patente);
     String _comentario = coment.getComentario();
@@ -89,17 +88,16 @@ public class SistemDB {
     {
       MongoClient _mongoClient = new MongoClient("localhost", 27017);
       this.mongoClient = _mongoClient;
-      BasicDBObject _dBObjectComentario = this.toDBObjectComentario(usuario, coment);
+      BasicDBObject _dBObjectComentario = this.toDBObjectComentario(coment);
       _xblockexpression = this.comentariosCollection.insert(_dBObjectComentario);
     }
     return _xblockexpression;
   }
   
-  public List<Comentario> verComentarios(final PerfilUsuario perfilUsuario, final String usuarioLocal) {
+  public List<Comentario> verComentarios(final Usuario usuario) {
     List<Comentario> coments = null;
     DBObject query = null;
-    Usuario _usuario = perfilUsuario.getUsuario();
-    String _nombreUsuario = _usuario.getNombreUsuario();
+    String _nombreUsuario = usuario.getNombreUsuario();
     BasicDBObject _basicDBObject = new BasicDBObject("$regex", _nombreUsuario);
     BasicDBObject _basicDBObject_1 = new BasicDBObject("usuario", _basicDBObject);
     query = _basicDBObject_1;

@@ -47,12 +47,12 @@ DBCollection comentariosCollection
 		new Collection<T>(JacksonDBCollection.wrap(dbCollection, entityType, String));
 	}
 	
-	def BasicDBObject toDBObjectComentario(Usuario u, Comentario coment) {
+	def BasicDBObject toDBObjectComentario(Comentario coment) {
 
     // Creamos una instancia BasicDBObject
     var BasicDBObject dBObjectComentario = new BasicDBObject();
 
-	dBObjectComentario.append("usuario", u.nombre);
+	dBObjectComentario.append("usuario", coment.autor);
     dBObjectComentario.append("auto", coment.patente);
     dBObjectComentario.append("comentario", coment.comentario);
     dBObjectComentario.append("calificacion", coment.calificacion);
@@ -70,14 +70,14 @@ DBCollection comentariosCollection
 		 
 		mongoClient = new MongoClient("localhost" , 27017);
 		
-		comentariosCollection.insert(toDBObjectComentario(usuario,coment));
+		comentariosCollection.insert(toDBObjectComentario(coment));
 		
 		}
 	
-	def verComentarios(PerfilUsuario perfilUsuario, String usuarioLocal){
+	def verComentarios(Usuario usuario){
 		var List<Comentario> coments;
 		var DBObject query
-			query = new BasicDBObject( "usuario", new BasicDBObject("$regex", perfilUsuario.usuario.nombreUsuario));
+			query = new BasicDBObject( "usuario", new BasicDBObject("$regex", usuario.nombreUsuario));
 			var cursor = comentariosCollection.find(query)
 		try {
 			while (cursor.hasNext()) {
