@@ -1,19 +1,15 @@
-package comentario
+package home
 
 import com.mongodb.BasicDBObject
 import com.mongodb.DB
 import com.mongodb.DBCollection
-import com.mongodb.DBCursor
 import com.mongodb.DBObject
 import com.mongodb.MongoClient
 import java.rmi.UnknownHostException
-import java.text.SimpleDateFormat
-import java.util.Date
 import java.util.List
-import model.Calificacion
+import model.Comentario
 import model.Usuario
 import org.eclipse.xtend.lib.annotations.Accessors
-import org.mongojack.JacksonDBCollection
 
 @Accessors
 class SistemDB {
@@ -42,10 +38,6 @@ DBCollection comentariosCollection
 	}
 	
 	
-	def <T> Collection<T> collection(Class<T> entityType){
-		val dbCollection = db.getCollection(entityType.getSimpleName());
-		new Collection<T>(JacksonDBCollection.wrap(dbCollection, entityType, String));
-	}
 	
 	def BasicDBObject toDBObjectComentario(Comentario coment) {
 

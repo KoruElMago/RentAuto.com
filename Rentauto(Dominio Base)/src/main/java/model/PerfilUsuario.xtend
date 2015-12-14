@@ -1,25 +1,23 @@
-package comentario
+package model
 
+import home.SistemDB
 import java.util.ArrayList
-import java.util.List
-import model.Usuario
 import org.eclipse.xtend.lib.annotations.Accessors
+import services.AmigoService
 
 @Accessors
 class PerfilUsuario {
 	Usuario usuario
-	List<Usuario> amigos
 	SistemDB baseDeComentarios
+	AmigoService amigos
 	
 	new(Usuario usuario)
 		{
 			this.usuario = usuario
 			this.baseDeComentarios = new SistemDB;
+			this.amigos = new AmigoService;
 		}
 	
-	def esAmigo(Usuario usuario){
-		return amigos.contains(usuario)
-	}
 	
 	def verComentario(Usuario usuario){
 		
@@ -38,7 +36,7 @@ class PerfilUsuario {
 					comentarios.remove(c)
 				}
 		//Filtro por si no es Amigo del Autor 					
-				if (!this.esAmigo(usuario)){
+				if (!amigos.esAmigoDe(this.usuario,usuario)){
 					if (c.privacidad.equals(Privacidad.AMIGOS)){
 							comentarios.remove(c)
 					}
@@ -52,5 +50,7 @@ class PerfilUsuario {
 	def publicarComentario(Comentario comentario){
 		this.baseDeComentarios.guardarComentario(this.usuario,comentario)
 	}
+	
+	
 		
 }

@@ -1,9 +1,6 @@
-package comentario
+package model
 
 import com.mongodb.BasicDBObject
-import java.util.ArrayList
-import model.Calificacion
-import model.Usuario
 import org.eclipse.xtend.lib.annotations.Accessors
 
 @Accessors

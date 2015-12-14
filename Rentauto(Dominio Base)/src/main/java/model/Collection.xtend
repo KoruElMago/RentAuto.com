@@ -1,4 +1,4 @@
-package comentario
+package model
 
 import java.util.List
 import org.mongojack.JacksonDBCollection
