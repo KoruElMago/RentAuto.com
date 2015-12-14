@@ -1,9 +1,11 @@
-package mongo;
+package comentario;
 
 import com.google.common.base.Objects;
 import com.mongodb.BasicDBObject;
+import comentario.Privacidad;
+import comentario.SistemDB;
 import model.Calificacion;
-import mongo.Privacidad;
+import model.Usuario;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Pure;
 
@@ -18,6 +20,10 @@ public class Comentario {
   
   private String patente;
   
+  private SistemDB servExpuesto;
+  
+  private String autor;
+  
   public Comentario(final BasicDBObject dBObjectComentario) {
     String _string = dBObjectComentario.getString("calificacion");
     this.calificacion = _string;
@@ -29,13 +35,18 @@ public class Comentario {
     this.patente = _string_3;
   }
   
-  public Comentario(final String comentario, final Calificacion calificacion, final Privacidad privacidad, final String patente) {
+  public Comentario(final String comentario, final Calificacion calificacion, final Privacidad privacidad, final String patente, final Usuario autor) {
     String _string = calificacion.toString();
     this.calificacion = _string;
     this.comentario = comentario;
     String _string_1 = privacidad.toString();
     this.privacidad = _string_1;
     this.patente = patente;
+    String _nombreUsuario = autor.getNombreUsuario();
+    this.autor = _nombreUsuario;
+    SistemDB _sistemDB = new SistemDB();
+    this.servExpuesto = _sistemDB;
+    this.servExpuesto.guardarComentario(autor, this);
   }
   
   public boolean esPrivado() {
@@ -82,5 +93,23 @@ public class Comentario {
   
   public void setPatente(final String patente) {
     this.patente = patente;
+  }
+  
+  @Pure
+  public SistemDB getServExpuesto() {
+    return this.servExpuesto;
+  }
+  
+  public void setServExpuesto(final SistemDB servExpuesto) {
+    this.servExpuesto = servExpuesto;
+  }
+  
+  @Pure
+  public String getAutor() {
+    return this.autor;
+  }
+  
+  public void setAutor(final String autor) {
+    this.autor = autor;
   }
 }

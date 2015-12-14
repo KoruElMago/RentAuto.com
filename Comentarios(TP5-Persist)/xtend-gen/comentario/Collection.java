@@ -1,4 +1,4 @@
-package mongo;
+package comentario;
 
 import java.util.List;
 import org.mongojack.JacksonDBCollection;

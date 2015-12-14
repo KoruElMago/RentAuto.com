@@ -1,4 +1,4 @@
-package mongo;
+package comentario;
 
 import com.google.common.base.Objects;
 import com.mongodb.BasicDBObject;
@@ -8,16 +8,12 @@ import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.WriteResult;
+import comentario.Collection;
+import comentario.Comentario;
+import comentario.PerfilUsuario;
 import java.rmi.UnknownHostException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import model.Calificacion;
 import model.Usuario;
-import mongo.Collection;
-import mongo.Comentario;
-import mongo.PerfilUsuario;
-import mongo.Privacidad;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Pure;
@@ -119,90 +115,7 @@ public class SistemDB {
     } finally {
       cursor.close();
     }
-    Usuario _usuario_1 = perfilUsuario.getUsuario();
-    String _nombreUsuario_1 = _usuario_1.getNombreUsuario();
-    boolean _equals = Objects.equal(_nombreUsuario_1, usuarioLocal);
-    if (_equals) {
-      return coments;
-    } else {
-      boolean _esAmigo = perfilUsuario.esAmigo(usuarioLocal);
-      if (_esAmigo) {
-        return this.comentariosParaAmigo(coments);
-      } else {
-        return this.comentariosParaExtraño(coments);
-      }
-    }
-  }
-  
-  public List<Comentario> comentariosParaAmigo(final List<Comentario> coments) {
-    for (final Comentario c : coments) {
-      boolean _esPrivado = c.esPrivado();
-      if (_esPrivado) {
-        coments.remove(c);
-      }
-    }
     return coments;
-  }
-  
-  public List<Comentario> comentariosParaExtraño(final List<Comentario> coments) {
-    for (final Comentario c : coments) {
-      boolean _or = false;
-      boolean _esPrivado = c.esPrivado();
-      if (_esPrivado) {
-        _or = true;
-      } else {
-        boolean _esAmigo = c.esAmigo();
-        _or = _esAmigo;
-      }
-      if (_or) {
-        coments.remove(c);
-      }
-    }
-    return coments;
-  }
-  
-  /**
-   * def actualizarComentario(PerfilUsuario usuario, Comentario comentario, String patente, Privacidad privacidadDeseada){
-   * // PASO 4.3: "UPDATE" -> Actualizamos la edad de los jugadores.
-   * //DBObject find = new BasicDBObject("edad", new BasicDBObject("$gt", 30));
-   * var DBObject find = new BasicDBObject("usuario", new BasicDBObject("$regex", usuario.usuario.nombreUsuario));
-   * var DBObject updated = new BasicDBObject().append("$inc", new BasicDBObject().append("edad", 100));
-   * collection.update(find, updated, false, true);
-   * 
-   * }
-   */
-  public void eliminar() {
-    DBObject findDoc = new BasicDBObject("usuario", "Lucio");
-    this.comentariosCollection.remove(findDoc);
-  }
-  
-  public void leer() {
-    DBCursor cursor = this.comentariosCollection.find();
-    try {
-      while (cursor.hasNext()) {
-        DBObject _next = cursor.next();
-        String _string = _next.toString();
-        System.out.println(_string);
-      }
-    } finally {
-      cursor.close();
-    }
-  }
-  
-  public static void main(final String[] args) {
-    try {
-      Comentario com = new Comentario("mal auto", Calificacion.MALO, Privacidad.AMIGOS, "NG123");
-      SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-      String dateInString = "1992-07-07";
-      Date fecha = sdf.parse(dateInString);
-      Usuario usuario = new Usuario("Luper", "Lucio", "Quintana", "un Email", fecha, "false123");
-      SistemDB sist = new SistemDB();
-      sist.guardarComentario(usuario, com);
-      sist.leer();
-      sist.eliminar();
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
   }
   
   @Pure

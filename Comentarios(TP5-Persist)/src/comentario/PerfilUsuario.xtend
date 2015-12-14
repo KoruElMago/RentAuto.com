@@ -1,8 +1,7 @@
-package mongo
+package comentario
 
 import java.util.ArrayList
 import java.util.List
-import model.Calificacion
 import model.Usuario
 import org.eclipse.xtend.lib.annotations.Accessors
 
@@ -21,4 +20,9 @@ class PerfilUsuario {
 		return amigos.contains(nombreUsuario)
 	}
 	
+	def verComentario(Usuario usuario){
+		var comentarios = ArrayList
+		comentarios.addAll()  
+		}
+		
 }

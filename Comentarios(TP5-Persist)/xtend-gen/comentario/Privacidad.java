@@ -1,4 +1,4 @@
-package mongo;
+package comentario;
 
 @SuppressWarnings("all")
 public enum Privacidad {

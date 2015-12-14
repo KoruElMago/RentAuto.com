@@ -1,15 +1,10 @@
 package test;
 
 import com.mongodb.DBCollection;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import model.Calificacion;
+import comentario.Comentario;
+import comentario.SistemDB;
 import model.Usuario;
-import mongo.Comentario;
-import mongo.Privacidad;
-import mongo.SistemDB;
 import org.eclipse.xtend.lib.annotations.Accessors;
-import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Pure;
 import org.junit.After;
 import org.junit.Before;
@@ -51,63 +46,17 @@ public class AbstractTest {
   
   @Before
   public void setup() {
-    try {
-      SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-      String dateInString = "1992-07-07";
-      Date fecha1 = sdf.parse(dateInString);
-      dateInString = "1989-05-12";
-      Date fecha2 = sdf.parse(dateInString);
-      dateInString = "1990-02-21";
-      Date fecha3 = sdf.parse(dateInString);
-      dateInString = "1985-05-15";
-      Date fecha4 = sdf.parse(dateInString);
-      dateInString = "1991-09-29";
-      Date fecha5 = sdf.parse(dateInString);
-      Usuario _usuario = new Usuario("Luper", "Lucio", "Quintana", "un Email", fecha1, "false123");
-      this.u1 = _usuario;
-      Usuario _usuario_1 = new Usuario("Serge", "Sergio", "Bugiannessi", "un Email", fecha5, "false123");
-      this.u2 = _usuario_1;
-      Usuario _usuario_2 = new Usuario("Kentin", "Abel", "Gonzales", "un Email", fecha2, "password");
-      this.u3 = _usuario_2;
-      Usuario _usuario_3 = new Usuario("Serena", "Belen", "Gamboa", "un Email", fecha3, "unaContra");
-      this.u4 = _usuario_3;
-      Usuario _usuario_4 = new Usuario("Facu123", "Facundo", "Lejarraga", "un Email", fecha4, "contraseña");
-      this.u5 = _usuario_4;
-      Comentario _comentario = new Comentario("No me gusto", Calificacion.MALO, Privacidad.AMIGOS, "NGD123");
-      this.c1 = _comentario;
-      Comentario _comentario_1 = new Comentario("Excelente auto", Calificacion.EXCELENTE, Privacidad.AMIGOS, "NGD123");
-      this.c2 = _comentario_1;
-      Comentario _comentario_2 = new Comentario("mmm maso menos, no fue de mi comodidad", Calificacion.REGULAR, Privacidad.AMIGOS, "NGD123");
-      this.c3 = _comentario_2;
-      Comentario _comentario_3 = new Comentario("mal auto", Calificacion.MALO, Privacidad.AMIGOS, "NGD123");
-      this.c4 = _comentario_3;
-      Comentario _comentario_4 = new Comentario("Que buen auto", Calificacion.BUENO, Privacidad.AMIGOS, "RMV234");
-      this.c5 = _comentario_4;
-      Comentario _comentario_5 = new Comentario("Ni me va ni me viene", Calificacion.REGULAR, Privacidad.AMIGOS, "RMV234");
-      this.c6 = _comentario_5;
-      Comentario _comentario_6 = new Comentario("Un asco", Calificacion.MALO, Privacidad.AMIGOS, "RMV234");
-      this.c7 = _comentario_6;
-      Comentario _comentario_7 = new Comentario("Muy satisfecho la verdad", Calificacion.EXCELENTE, Privacidad.AMIGOS, "RMV234");
-      this.c8 = _comentario_7;
-      Comentario _comentario_8 = new Comentario("...", Calificacion.REGULAR, Privacidad.AMIGOS, "ALG135");
-      this.c9 = _comentario_8;
-      Comentario _comentario_9 = new Comentario("Me gustó este auto", Calificacion.BUENO, Privacidad.AMIGOS, "ALG135");
-      this.c10 = _comentario_9;
-      SistemDB _sistemDB = new SistemDB();
-      this.dataBase = _sistemDB;
-      this.dataBase.guardarComentario(this.u1, this.c1);
-      this.dataBase.guardarComentario(this.u1, this.c2);
-      this.dataBase.guardarComentario(this.u1, this.c3);
-      this.dataBase.guardarComentario(this.u2, this.c1);
-      this.dataBase.guardarComentario(this.u2, this.c2);
-      this.dataBase.guardarComentario(this.u2, this.c3);
-      this.dataBase.guardarComentario(this.u2, this.c4);
-      this.dataBase.guardarComentario(this.u3, this.c6);
-      this.dataBase.guardarComentario(this.u4, this.c7);
-      this.dataBase.guardarComentario(this.u5, this.c8);
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
+    throw new Error("Unresolved compilation problems:"
+      + "\nInvalid number of arguments. The constructor Comentario(String, Calificacion, Privacidad, String, Usuario) is not applicable for the arguments (String,Calificacion,Privacidad,String)"
+      + "\nInvalid number of arguments. The constructor Comentario(String, Calificacion, Privacidad, String, Usuario) is not applicable for the arguments (String,Calificacion,Privacidad,String)"
+      + "\nInvalid number of arguments. The constructor Comentario(String, Calificacion, Privacidad, String, Usuario) is not applicable for the arguments (String,Calificacion,Privacidad,String)"
+      + "\nInvalid number of arguments. The constructor Comentario(String, Calificacion, Privacidad, String, Usuario) is not applicable for the arguments (String,Calificacion,Privacidad,String)"
+      + "\nInvalid number of arguments. The constructor Comentario(String, Calificacion, Privacidad, String, Usuario) is not applicable for the arguments (String,Calificacion,Privacidad,String)"
+      + "\nInvalid number of arguments. The constructor Comentario(String, Calificacion, Privacidad, String, Usuario) is not applicable for the arguments (String,Calificacion,Privacidad,String)"
+      + "\nInvalid number of arguments. The constructor Comentario(String, Calificacion, Privacidad, String, Usuario) is not applicable for the arguments (String,Calificacion,Privacidad,String)"
+      + "\nInvalid number of arguments. The constructor Comentario(String, Calificacion, Privacidad, String, Usuario) is not applicable for the arguments (String,Calificacion,Privacidad,String)"
+      + "\nInvalid number of arguments. The constructor Comentario(String, Calificacion, Privacidad, String, Usuario) is not applicable for the arguments (String,Calificacion,Privacidad,String)"
+      + "\nInvalid number of arguments. The constructor Comentario(String, Calificacion, Privacidad, String, Usuario) is not applicable for the arguments (String,Calificacion,Privacidad,String)");
   }
   
   @After

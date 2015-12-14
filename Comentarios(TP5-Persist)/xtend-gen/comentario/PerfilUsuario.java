@@ -1,4 +1,4 @@
-package mongo;
+package comentario;
 
 import java.util.List;
 import model.Usuario;
@@ -18,6 +18,11 @@ public class PerfilUsuario {
   
   public boolean esAmigo(final String nombreUsuario) {
     return this.amigos.contains(nombreUsuario);
+  }
+  
+  public void verComentario(final Usuario usuario) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe static method addAll(Collection<Field>, Field[]) should be accessed in a static way");
   }
   
   @Pure

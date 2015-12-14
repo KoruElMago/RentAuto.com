@@ -1,18 +1,15 @@
 package test
 
+import comentario.Comentario
+import comentario.Privacidad
+import comentario.SistemDB
 import java.text.SimpleDateFormat
 import java.util.Date
-import java.util.List
 import model.Calificacion
 import model.Usuario
-import mongo.Comentario
-import mongo.Privacidad
-import mongo.SistemDB
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.junit.After
 import org.junit.Before
-import org.mockito.Mockito
-import com.sun.jna.platform.win32.BaseTSD.SSIZE_T
 
 @Accessors
 class AbstractTest {
